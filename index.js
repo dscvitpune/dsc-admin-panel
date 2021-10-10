@@ -7,6 +7,11 @@ const passport = require('passport');
 
 require('dotenv').config();
 
+require("./Models/user_model");
+require("./Models/event_model");
+require("./Models/member_model");
+require('./services/passport')(passport);
+
 const app = express();
 const PORT = 5000 || process.env.PORT;
 
@@ -47,6 +52,11 @@ mongoose.connect(uri, {
 }).catch(e => {
     console.error(e);
 })
+
+//connecting route handlers
+require("./routes/authRoutes")(app);
+require("./routes/eventRoutes")(app);
+require("./routes/memberRoutes")(app);
 
 app.listen(PORT, () => {
     console.log(`🚀Listening on port: ${PORT}`);

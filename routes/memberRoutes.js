@@ -11,7 +11,7 @@ const {
     dscManagement,
     deleteMember,
     updateMember
-} = require('../Controllers/members');
+} = require('../controllers/members');
 
 module.exports = (app) => {
     app.post('/team/newMember', createMember);

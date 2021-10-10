@@ -1,5 +1,5 @@
-const {getEvents, newEvent, updateEvent, deleteEvent} = require("../Controllers/events");
-const upload = require('../Middlewares/upload');
+const {getEvents, newEvent, updateEvent, deleteEvent} = require("../controllers/events");
+const upload = require('../middlewares/upload');
 
 module.exports = (app) => {
     app.get('/events', getEvents);

@@ -1,4 +1,4 @@
-const { signUp, logIn, logOut } = require("../Controllers/auth");
+const { signUp, logIn, logOut } = require("../controllers/auth");
 
 
 // router.use(express.static('../public'));
