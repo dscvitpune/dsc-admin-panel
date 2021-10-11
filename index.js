@@ -4,12 +4,13 @@ const cors = require('cors');
 const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
+const path = require('path');
 
 require('dotenv').config();
 
-require("./Models/user_model");
-require("./Models/event_model");
-require("./Models/member_model");
+require("./models/user_model");
+require("./models/event_model");
+require("./models/member_model");
 require('./services/passport')(passport);
 
 const app = express();
