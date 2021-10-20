@@ -1,7 +1,7 @@
 ---
 name: Webpage Issue - Frontend
 about: 'Create an issue for the frontend of a webpage '
-title: Webpage Name | Frontend | Assigned person name
+title: Webpage Name | Frontend
 labels: ''
 assignees: ''
 
