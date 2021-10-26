@@ -1,0 +1,76 @@
+.txtarea{
+    width: 100%;
+}
+.projectform{
+    width: 95%;
+}
+.demoimage{
+  width: 100%;
+    border: 2px dashed;
+    border-color: rgb(138, 138, 138);
+    border-radius: 1rem;
+ 
+}
+.demoimage div p,input{
+    font-family: 'Poppins', sans-serif;
+}
+.txtmuted{
+    color: rgb(177, 177, 177);
+}
+.addproj{
+    width:fit-content;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 1rem;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    cursor: pointer;
+   
+}
+
+#file-upload-button{
+    display: none;
+}
+.form{
+    border-color: rgb(177, 177, 177);
+    border-radius: 0.6rem;
+    box-shadow: 3px 7px 20px rgb(221, 232, 255);
+    max-width: 70%;
+    padding: 2rem;
+}
+.upload{
+    width: 400px;
+}
+.demoimage div{
+    padding: 0rem 0.5rem 0.5rem 0.5rem;
+}
+@media only screen and (max-width: 570px) {
+    .uploaddiv {
+      width: 100%;
+      margin-top: 2.4rem;
+    }
+    .demoimage div{
+        padding-top: 1rem;
+    }
+    .resp{
+        display: block;
+        flex-wrap: nowrap;
+    }
+    .form{
+        max-width: 90%;
+    }
+    .domain{
+        margin-top: 1rem;
+    }
+}
+
+.form-control{
+    background-color: rgb(236, 236, 236);
+    
+}
+.domainselect{
+    width: 99%;
+}
+
+.titl{
+    margin-left: 15%;
+    margin-top: 2rem;
+}
