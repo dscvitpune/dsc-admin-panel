@@ -1,6 +1,10 @@
+
+/**template for navigation bar
+ * include it in every necessary view using  <script src="<relativepath>static/js/navigationbar.js"></script>
+ */
+
 document.write(
     `
-
     <div id="navigation" style="position:fixed;">
     <div style="display: flex;">
         <div class="name mt-1">
@@ -34,7 +38,6 @@ document.write(
     <img src="../static/images/dscbottom1.JPG" id="bottomimg">
 </div>
 
-
     `
 )
 
@@ -59,7 +62,7 @@ var open=false;
            }
        })
      
-      
+      /**background-color change on icon-hover */
        if(window.location.href.split('/').slice(-1)[0]==='#' | window.location.href.split('/').slice(-1)[0]===''){
            document.querySelector('.routes div:nth-child(1n) a').style.color="rgb(255,255,255)";
           
