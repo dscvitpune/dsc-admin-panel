@@ -35,7 +35,7 @@
   margin-right: 20px;
 }
 
-
+/*design for text fields*/
 .text{
   position: relative;
   height: 45px;
@@ -58,7 +58,7 @@
 }
 
 
-
+/*design for labels of text fields*/
 .text1{
   height: 25px;
   width: 480px;
@@ -66,6 +66,7 @@
   margin-left: 10px;
 }
 
+/*below width of 640px removing right side*/
 @media only screen and (max-width: 640px){
 .split {
   height: 100%;
