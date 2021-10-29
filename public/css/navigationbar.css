@@ -34,7 +34,9 @@ html{
     transform: translate3d(-62%,0px,0px);
     visibility: visible;
     transition: all 0.5s ease 0s;
-    
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .shortcuts{
@@ -123,4 +125,9 @@ transition: all 0.5s ease 0s;
     position: absolute;
     bottom: 0px;
   
+}
+@media only screen and (max-width: 570px) {
+    #navigation{
+        position: fixed;
+    }
 }

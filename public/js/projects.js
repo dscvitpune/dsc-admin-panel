@@ -1,6 +1,8 @@
 /**setting the left margin of main div to right position of nav-bar since nav-bar's position is fixed */
     console.log(document.getElementById('navigation').getBoundingClientRect().right)
     document.querySelector('.projectform').style.marginLeft=document.getElementById('navigation').getBoundingClientRect().right+'px';
+    document.querySelector('.projectstable').style.marginLeft=document.getElementById('navigation').getBoundingClientRect().right+'px';
+    // document.querySelector('.table').style.marginLeft=document.getElementById('formm').getBoundingClientRect().left+'px';
     const imgupload=()=>{
    document.getElementById('imgupload').click();
     }

@@ -25,7 +25,6 @@
     cursor: pointer;
    
 }
-
 #file-upload-button{
     display: none;
 }
@@ -41,6 +40,12 @@
 }
 .demoimage div{
     padding: 0rem 0.5rem 0.5rem 0.5rem;
+}
+
+@media only screen and (min-width: 570px) {
+    .tablesp{
+        display: flex;
+    }
 }
 @media only screen and (max-width: 570px) {
     .uploaddiv {
@@ -60,17 +65,67 @@
     .domain{
         margin-top: 1rem;
     }
+    .projectstable{
+        overflow: auto;
+        margin-left: 5rem;
+        width: 100%;
+    }
+    .tablesp{
+        margin-left: 3rem;
+    }
+    .table{
+       width: 100%; 
+    }
 }
-
+.tablesp{
+    margin:auto;
+justify-content: center;
+}
 .form-control{
-    background-color: rgb(236, 236, 236);
-    
+    background-color: rgb(236, 236, 236);  
 }
 .domainselect{
     width: 99%;
 }
-
 .titl{
     margin-left: 15%;
     margin-top: 2rem;
 }
+.tbuttons button{
+padding: 0.0rem;
+    width:30px;
+    height:30px;
+}
+.tbuttons button:not(:nth-child(3)){
+    margin-right: 0.3rem;
+}
+.tbuttons button img{
+    width:23px;
+    height:23px;
+}
+.tbuttons button:nth-child(1){background-color: rgb(10, 155, 86);}
+.tbuttons button:nth-child(2){background-color: rgb(83, 125, 190);}
+.tbuttons button:nth-child(3){background-color: rgb(229, 70, 53);}
+
+.tbuttons{
+    height: 100%;
+   vertical-align: middle;
+}
+.t-buttons{
+    justify-content: center;
+    display: flex;
+}
+.short{
+    width: 7%;
+}
+.table tbody tr td{
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.table{
+    text-align:center;
+    width: fit-content;
+    max-width: 85%;
+}
+

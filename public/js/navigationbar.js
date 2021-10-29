@@ -5,14 +5,14 @@
 
 document.write(
     `
-    <div id="navigation" style="position:fixed;">
+    <div id="navigation">
     <div style="display: flex;">
         <div class="name mt-1">
             <p>DSC</p>
             <p>VIT Pune</p> 
         </div>
         <div>
-            <img src="../static/images/4.png" id="logo" class="logo mt-3" alt="dsclogo"/>
+            <img src="../public/images/4.png" id="logo" class="logo mt-3" alt="dsclogo"/>
         </div>
     </div>
    
@@ -27,15 +27,15 @@ document.write(
         </div>
         <div class="shortcuts" id="tools">
         
-            <div><a href="./"><img src="../static/images/menu.png" alt="" ></a></div>
-            <div><a href="./events"><img src="../static/images/calendar2.png" alt="" ></a></div>
-            <div><a href="./projects"><img src="../static/images/window.png" alt="" ></a></div>
-            <div><a href="./teams"><img src="../static/images/teams.png" alt="" ></a></div>
-            <div><a href="http://certificate-generator-dsc.herokuapp.com/" ><img src="../static/images/certificate6.png" alt="" ></a></div>
+            <div><a href="./"><img src="../public/images/menu.png" alt="" ></a></div>
+            <div><a href="./events"><img src="../public/images/calendar2.png" alt="" ></a></div>
+            <div><a href="./projects"><img src="../public/images/window.png" alt="" ></a></div>
+            <div><a href="./teams"><img src="../public/images/teams.png" alt="" ></a></div>
+            <div><a href="http://certificate-generator-dsc.herokuapp.com/" ><img src="../public/images/certificate6.png" alt="" ></a></div>
             
         </div>
     </div>
-    <img src="../static/images/dscbottom1.JPG" id="bottomimg">
+    <img src="../public/images/dscbottom1.JPG" id="bottomimg">
 </div>
 
     `
