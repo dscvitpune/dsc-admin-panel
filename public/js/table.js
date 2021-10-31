@@ -64,7 +64,7 @@ data.forEach((item) => {
     const element = document.createElement('tr')
     element.classList.add('element')
     element.innerHTML = `
-    <th scope="row" id="${item.id}" >
+    <th scope="row" class="d-none d-sm-block" id="${item.id}" >
     <div class="d-flex justify-content-center align-items-center text-light font-weight-normal text-center rounded-circle" style="background-color:${randomColor()}; width: 36px; height: 36px">${firstLetter}</div></th>
     <td>${item.name}</td>
     <td>${item.role}</td>

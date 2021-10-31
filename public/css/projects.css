@@ -115,26 +115,17 @@ padding: 0.0rem;
     justify-content: center;
     display: flex;
 }
-.descr{
-    width: 20%;
-}
 .short{
     width: 7%;
 }
-.table tbody tr td:nth-child(5){
+.table tbody tr td{
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-all;
-}
-.controls{
-    width: 2%;
 }
 .table{
     text-align:center;
     width: fit-content;
     max-width: 85%;
-}
-.srno{
-    width: 2%;
 }
 

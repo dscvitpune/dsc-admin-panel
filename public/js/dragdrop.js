@@ -37,11 +37,15 @@ dropArea.addEventListener("drop", (event)=>{
 
 function showFile(){
   let fileType = file.type; 
+  //valid extensions for image file
   let validExtensions = ["image/jpeg", "image/jpg", "image/png"]; 
-  if(validExtensions.includes(fileType)){ 
+  if(validExtensions.includes(fileType)){
+    //create object to read file 
     let fileReader = new FileReader(); 
     fileReader.onload = ()=>{
+      //store filre url in variable
       let fileURL = fileReader.result; 
+      //html to view image when loaded
       let imgTag = `<img class="img-fluid" src="${fileURL}" alt="image">`; 
       dropArea.innerHTML = imgTag; 
     }
