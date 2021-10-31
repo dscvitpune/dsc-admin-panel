@@ -19,18 +19,18 @@ document.write(
     <div class="mainnav d-flex">
         <div class="routes ">
             <div> <a href="./" >Dashboard</a></div>
-            <div> <a href="./events" >Events</a></div>
-            <div> <a href="./projects" >Projects</a></div>
-            <div> <a href="./teams" >Teams</a></div>
+            <div> <a href="../views/events.html" >Events</a></div>
+            <div> <a href="../views/projects.html" >Projects</a></div>
+            <div> <a href="../views/teams.html" >Teams</a></div>
             <div>   <a href="http://certificate-generator-dsc.herokuapp.com/" >Certificates</a></div>
             
         </div>
         <div class="shortcuts" id="tools">
         
             <div><a href="./"><img src="../public/images/menu.png" alt="" ></a></div>
-            <div><a href="./events"><img src="../public/images/calendar2.png" alt="" ></a></div>
-            <div><a href="./projects"><img src="../public/images/window.png" alt="" ></a></div>
-            <div><a href="./teams"><img src="../public/images/teams.png" alt="" ></a></div>
+            <div><a href="../views/events.html"><img src="../public/images/calendar2.png" alt="" ></a></div>
+            <div><a href="../views/projects.html"><img src="../public/images/window.png" alt="" ></a></div>
+            <div><a href="../views/teams.html"><img src="../public/images/teams.png" alt="" ></a></div>
             <div><a href="http://certificate-generator-dsc.herokuapp.com/" ><img src="../public/images/certificate6.png" alt="" ></a></div>
             
         </div>
