@@ -1,0 +1,129 @@
+body{
+    height: 100%;
+}
+html{
+    height: 100%;
+}
+.logo{
+    height: 60px;
+    width: 60px;
+    margin-left: 78%;
+    border-radius: 0.5rem;
+}
+.name{
+    padding-left: 1rem;
+    color: rgb(255, 255, 255);
+}
+.name :first-child{
+    font-size: 2rem;
+    margin-bottom: 0.1rem;
+    font-family: 'Playfair Display', serif;
+}
+.name :last-child{
+    font-family: 'Play', sans-serif;
+}
+#navigation{  
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    width: max-content;
+    padding-right: 0.7rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-top-right-radius :0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    height:100%;
+    transform: translate3d(-62%,0px,0px);
+    visibility: visible;
+    transition: all 0.5s ease 0s;
+    
+}
+
+.shortcuts{
+    background-color: rgba(219, 219, 219, 0.306);
+    width: fit-content;
+ height: fit-content;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-radius: 0.5rem;
+    margin-left: 1.6rem;
+}
+.shortcuts div  {
+  padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+   margin-bottom: 1.5rem;
+   margin-left: 0.3rem;
+   margin-right: 0.3rem;
+   border-radius: 0.4rem;
+}
+.shortcuts div:last-child{
+    margin-bottom: 0rem;
+}
+.shortcuts div a img{
+    height: 32px;
+    width: 32px;
+}
+.shortcuts div:hover{
+    color: black;
+    transition: all 0.8s ease 0s;
+}
+.shortcuts div:nth-child(1n):hover{
+    background-color:rgb(189, 20, 4)   ;
+}
+.shortcuts div:nth-child(2n):hover{
+    background-color: rgba(249, 188, 21);
+}
+.shortcuts div:nth-child(3n):hover{
+    background-color: rgb(73, 116, 186);
+}
+.shortcuts div:nth-child(4n):hover{
+    background-color: rgb(10, 147, 83);
+}
+.shortcuts div:nth-child(5n):hover{
+    background-color: rgb(189, 20, 4);
+}
+.routes div a{
+text-decoration: none;
+color: rgb(169, 169, 169);
+}
+.routes div{
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    /* border-radius: 0.3rem; */
+}
+
+
+.routes div:hover a{
+    color: white;
+
+transition: all 0.5s ease 0s;
+}
+.routes{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 0.6rem;
+    font-family: 'Oxygen', sans-serif;
+ 
+}
+.routes div{
+    margin-bottom: 2.3rem;
+}
+.routes div:last-child{
+    margin-bottom: 0rem;
+}
+.mainnav{
+    margin-top: 2rem;
+}
+
+#bottomimg{
+    
+    max-width:150px;
+    position: absolute;
+    bottom: 0px;
+  
+}
