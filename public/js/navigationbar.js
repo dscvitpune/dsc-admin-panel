@@ -1,14 +1,18 @@
+
+/**template for navigation bar
+ * include it in every necessary view using  <script src="<relativepath>static/js/navigationbar.js"></script>
+ */
+
 document.write(
     `
-
-    <div id="navigation" style="position:fixed;">
+    <div id="navigation">
     <div style="display: flex;">
         <div class="name mt-1">
             <p>DSC</p>
             <p>VIT Pune</p> 
         </div>
         <div>
-            <img src="../public/images/DSC_logo_colour.png" id="logo" class="logo mt-3" alt="dsclogo"/>
+            <img src="../public/images/4.png" id="logo" class="logo mt-3" alt="dsclogo"/>
         </div>
     </div>
    
@@ -22,6 +26,7 @@ document.write(
             
         </div>
         <div class="shortcuts" id="tools">
+        
             <div><a href="./"><img src="../public/images/menu.png" alt="" ></a></div>
             <div><a href="./events"><img src="../public/images/calendar2.png" alt="" ></a></div>
             <div><a href="./projects"><img src="../public/images/window.png" alt="" ></a></div>
@@ -30,9 +35,8 @@ document.write(
             
         </div>
     </div>
-    <img src="../public/images/dscbottom.JPG" id="bottomimg">
+    <img src="../public/images/dscbottom1.JPG" id="bottomimg">
 </div>
-
 
     `
 )
@@ -58,7 +62,7 @@ var open=false;
            }
        })
      
-      
+      /**background-color change on icon-hover */
        if(window.location.href.split('/').slice(-1)[0]==='#' | window.location.href.split('/').slice(-1)[0]===''){
            document.querySelector('.routes div:nth-child(1n) a').style.color="rgb(255,255,255)";
           
@@ -76,4 +80,3 @@ var open=false;
       
        }
 
-       
