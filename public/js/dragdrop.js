@@ -37,7 +37,7 @@ dropArea.addEventListener("drop", (event)=>{
 
 function showFile(){
   let fileType = file.type; 
-  //vaid extensions for image file
+  //valid extensions for image file
   let validExtensions = ["image/jpeg", "image/jpg", "image/png"]; 
   if(validExtensions.includes(fileType)){
     //create object to read file 
