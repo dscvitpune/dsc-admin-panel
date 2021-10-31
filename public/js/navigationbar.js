@@ -3,7 +3,7 @@
  * include it in every necessary view using  <script src="<relativepath>static/js/navigationbar.js"></script>
  */
 
- document.write(
+document.write(
     `
     <div id="navigation">
     <div style="display: flex;">
@@ -80,4 +80,3 @@ var open=false;
       
        }
 
-       
