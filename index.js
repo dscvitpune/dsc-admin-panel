@@ -48,7 +48,7 @@ app.use((req, res, next) => {
 
 app.use('/uploads', express.static('./uploads'));
 
-const uri = 'mongodb://localhost:27017/admin-panel';
+const uri = 'process.env.ATLAS_URI;';
 mongoose.Promise = global.Promise;
 
 mongoose.connect(uri, {
