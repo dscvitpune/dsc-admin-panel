@@ -4,6 +4,8 @@ const cors = require('cors');
 const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
+const multer = require('multer');
+const upload = multer();
 const path = require('path');
 
 require('dotenv').config();
@@ -11,6 +13,7 @@ require('dotenv').config();
 require("./models/user_model");
 require("./models/event_model");
 require("./models/member_model");
+require("./models/project_model");
 require('./services/passport')(passport);
 
 const app = express();
@@ -42,7 +45,10 @@ app.use((req, res, next) => {
     next();
 })
 
-const uri = process.env.ATLAS_URI;
+
+app.use('/uploads', express.static('./uploads'));
+
+const uri = 'mongodb://localhost:27017/admin-panel';
 mongoose.Promise = global.Promise;
 
 mongoose.connect(uri, {
@@ -58,6 +64,7 @@ mongoose.connect(uri, {
 require("./routes/authRoutes")(app);
 require("./routes/eventRoutes")(app);
 require("./routes/memberRoutes")(app);
+require("./routes/projectRoutes")(app);
 
 app.listen(PORT, () => {
     console.log(`🚀Listening on port: ${PORT}`);
