@@ -23,6 +23,8 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+app.set('view engine', 'ejs');
+
 // Express session
 app.use(
     session({
@@ -51,20 +53,23 @@ app.use('/uploads', express.static('./uploads'));
 const uri = 'process.env.ATLAS_URI;';
 mongoose.Promise = global.Promise;
 
-mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => {
-    console.log("Connected to Mongo");
-}).catch(e => {
-    console.error(e);
-})
+// mongoose.connect(uri, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// }).then(() => {
+//     console.log("Connected to Mongo");
+// }).catch(e => {
+//     console.error(e);
+// })
 
 //connecting route handlers
 require("./routes/authRoutes")(app);
 require("./routes/eventRoutes")(app);
 require("./routes/memberRoutes")(app);
 require("./routes/projectRoutes")(app);
+
+
+
 
 app.listen(PORT, () => {
     console.log(`🚀Listening on port: ${PORT}`);
