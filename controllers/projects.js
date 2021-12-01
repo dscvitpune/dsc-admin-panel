@@ -8,14 +8,17 @@ const newProject = async (req, res) => {
     {    
         const existingProject = await Project.findOne({ projectTitle });
         if (existingProject) throw "project already exists";
-        
+        console.log("req.file: ");
+        console.log(req.file);
+        console.log("req.file.buffer: ");
+        console.log(req.file.buffer);
         let newProject = await new Project({
             projectTitle,
             domain,
             description,
             githubLink,
             videoLink,
-            // image: req.file.buffer
+            image: req.file.buffer
         }).save();
 
         console.log(newProject);
