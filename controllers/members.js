@@ -1,15 +1,23 @@
 const {model} = require('mongoose');
 const Member = model('members');
 
+
 const createMember = async (req, res) => {
-    const {firstName, lastName, linkedInProfile, role, specialRole} = req.body;
+    // console.log(req.file)
+    console.log(req.body)
+    console.log(req.file)
+    const {firstName, lastName, linkedInProfile, role, githubProfile,mobileNumber} = req.body;
+    const image=req.file.buffer;
+    
     try {
         let newMember = await new Member({
             firstName,
-            lastName,
-            linkedInProfile,
-            role,
-            specialRole: (specialRole)? specialRole : null
+    lastName,
+    linkedInProfile,
+    githubProfile,
+    role,
+    mobileNumber,
+    image
         }).save();
 
         console.log(newMember);
@@ -33,7 +41,7 @@ const getAllMembers = async (req, res) => {
 
 const dscLead = async (req, res) => {
     try {
-        const lead = await Member.findOne({specialRole: "head"});
+        const lead = await Member.findOne({role: "head"});
         res.status(200).json(lead);
     } catch (e) {
         console.error(e);
@@ -43,7 +51,7 @@ const dscLead = async (req, res) => {
 
 const dscHeads = async (req, res) => {
     try {
-        const heads = await Member.find({specialRole:"head"});
+        const heads = await Member.find({role:"head"});
         res.status(200).json({heads: heads});
     } catch (e) {
         console.error(e);
@@ -54,7 +62,7 @@ const dscHeads = async (req, res) => {
 
 const dscProjectManagers = async (req, res) => {
     try {
-        const projectManagers = await Member.find({specialRole: "project manager"});
+        const projectManagers = await Member.find({role: "project manager"});
         console.log(projectManagers);
         res.status(200).json({projectManagers: projectManagers});
     } catch (e) {
@@ -124,6 +132,22 @@ const deleteMember = async (req, res) => {
     }
 }
 
+const displayOne = async (req, res) => {
+    // console.log(req.body)
+    const {id} = req.body;
+    
+    try {
+        let member = await Member.findById(id);
+        console.log(id)
+        console.log(member)
+        res.status(200).json(member);
+        // res.status(200).json({message: "member found"});
+
+    } catch (e) {
+        console.error(e);
+        res.staus(300).json({message: "something went wrong"});
+    }
+}
 const updateMember = async (req, res) => {
     const {id, firstName, lastName, linkedInProfile, role, specialRole} = req.body;
     try {
@@ -165,5 +189,6 @@ module.exports = {
     dscMultimediaTeam,
     dscProjectManagers,
     deleteMember,
+    displayOne,
     updateMember
 }
