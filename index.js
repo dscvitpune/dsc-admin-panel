@@ -47,7 +47,6 @@ app.use((req, res, next) => {
     next();
 })
 
-
 app.use('/uploads', express.static('./uploads'));
 
 const uri = process.env.ATLAS_URI;
