@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../partials/head") %>
+    <link rel="stylesheet" href="/css/events.css">
+  </head>
+  <body>
+    <!--navigation bar-->
+    <script src="/js/navigationbar.js"></script>
+    <div class="event">
+      <!--start Event form-->
+      <div class="events1">
+        <h1 style="align-self: center">EVENT FORM</h1>
+        <div class="main-container">
+          <div class="container py-3">
+            <div class="row">
+              <div class="col-md-7 px-3">
+                <div class="row">
+                  <div class="form-group col-xs-8 col-md-6">
+                    <label for="name" class="control-label" style="float: left"
+                      >Event Name</label
+                    >
+                    <input
+                      type="text"
+                      value=""
+                      class="form-control"
+                      id="name"
+                      style="background-color: #d7dbdd"
+                    />
+                  </div>
+                  <div class="form-group col-xs-8 col-md-6">
+                    <label for="name" class="control-label" style="float: left"
+                      >Venue</label
+                    >
+                    <input
+                      type="text"
+                      value=""
+                      class="form-control"
+                      id="venue"
+                      style="background-color: #d7dbdd"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-xs-8 col-md-12">
+                    <label for="name" class="control-label" style="float: left"
+                      >Description</label
+                    >
+                    <input
+                      type="text"
+                      value=""
+                      class="form-control"
+                      id="desctiption"
+                      style="height: 60px; background-color: #d7dbdd"
+                      id="name"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-xs-8 col-md-6">
+                    <label for="name" class="control-label" style="float: left"
+                      >Start Date</label
+                    >
+                    <input
+                      type="date"
+                      value=""
+                      class="form-control"
+                      id="date"
+                      style="background-color: #d7dbdd"
+                    />
+                  </div>
+                  <div class="form-group col-xs-8 col-md-6">
+                    <label for="name" class="control-label" style="float: left"
+                      >Duration</label
+                    >
+                    <input
+                      type="number"
+                      value=""
+                      class="form-control"
+                      id="duration"
+                      style="background-color: #d7dbdd"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-xs-8 col-md-12">
+                    <label for="name" class="control-label" style="float: left"
+                      >Registration link</label
+                    >
+                    <input
+                      type="text"
+                      value=""
+                      class="form-control"
+                      id="registration"
+                      style="background-color: #d7dbdd"
+                    />
+                  </div>
+                </div>
+                <div id="day-slots-row"></div>
+                <script src="/js/dynamicfields.js"></script>
+              </div>
+              <div class="col-md-5" style="text-align: center">
+                <div class="photo-box">
+                  <div class="icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                  </div>
+                  <header>Drag & Drop to Upload File</header>
+                  <span>OR</span>
+                  <button>Browse File</button>
+                  <input type="file" hidden />
+                  <script src="/js/dragdrop.js"></script>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="row justify-content-center px-3"
+            style="margin-top: 20px; margin-bottom: 10px"
+          >
+            <button
+              type="button"
+              class="btn btn-dark btn1"
+              style="border-radius: 20px; width: 110px"
+            >
+              ADD EVENT
+            </button>
+          </div>
+        </div>
+      </div>
+      <!--End Event form-->
+      <!--Start cards to show all events-->
+      <div class="events">
+        <h1>EVENTS</h1>
+        <ul>
+          <li class="card">
+            <div class="container py-3">
+              <!-- Card Start -->
+              <div class="row">
+                <div class="col-md-7 px-3">
+                  <div class="card-block px-6">
+                    <h4 class="card-title">Event Name</h4>
+                    <div class="row">
+                      <div class="col-sm-6 col-md-6 venue">
+                        <p>Event venue</p>
+                      </div>
+                      <div class="col-sm-6 col-md-6 status">
+                        <p>Event Status</p>
+                      </div>
+                    </div>
+
+                    <p class="card-text">
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it to make a
+                      type specimen book. It has survived not only five
+                      centuries, but also the leap into electronic typesetting,
+                      remaining essentially unchanged.
+                    </p>
+                    <div class="d-flex flex-row">
+                      <i class="fa fa-calendar" style="font-size: 25px"></i>
+                      <p style="padding-left: 7px; font-size: large">
+                        dd-mm-yyyy
+                      </p>
+                    </div>
+                    <div class="d-flex flex-row">
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        style="margin: 5px"
+                      >
+                        Register
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        style="margin: 5px"
+                      >
+                        Delete
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-info"
+                        style="margin: 5px"
+                      >
+                        Edit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-5" style="text-align: center">
+                  <img
+                    class="img-fluid h-100"
+                    src="/images/trial.JPG"
+                  />
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!--End of cards-->
+    </div>
+    <%- include("../partials/scripts") %>
+  </body>
+</html>
