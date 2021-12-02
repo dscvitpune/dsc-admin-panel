@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head") %> 
+    
+</head>
+<body>
+    <body>
+
+        <div class="mx-auto d-flex">
+              <div>
+                    <script src="/js/navigationbar.js"></script>
+              </div>
+              <div class="projectform">
+                    <div>
+                          <form method="post">
+                                <p class="display-6 titl mb-4"><b>Teams</b></p>
+                                <div class="form mx-auto">
+                                      <div class="row">
+                                            <div class="col">
+                                                  <div class="row resp">
+                                                        <div class="col projtitle">
+                                                              <label for="" class="form-label">First Name </label>
+                                                              <input type="text" class="form-control " required
+                                                                    placeholder="">
+                                                        </div>
+                                                        <div class="col domain">
+                                                              <label for="" class="form-label">Last Name</label>
+                                                              <input type="text" class="form-control " required
+                                                                    placeholder="">
+  
+                                                        </div>
+                                                  </div>
+                                                  <div class="row">
+                                                        <div class="column">
+                                                              <div class="row resp">
+                                                                    <div class="col projtitle">
+                                                                          <label for=""
+                                                                                class="form-label mt-3">GitHub</label>
+                                                                          <input type="text" class="form-control "
+                                                                                required placeholder="">
+  
+                                                                    </div>
+                                                                    <div class="col domain">
+                                                                          <label for=""
+                                                                                class="form-label mt-3">Email</label>
+                                                                          <input type="text" required class="form-control"
+                                                                                placeholder="">
+                                                                    </div>
+  
+                                                              </div>
+                                                        </div>
+                                                  </div>
+                                                  <div class="row">
+                                                        <div class="col">
+  
+                                                              <div class="row resp">
+                                                                    <div class="col domain">
+                                                                          <label for=""
+                                                                                class="form-label mt-3">Contact</label>
+                                                                          <input type="text" required class="form-control"
+                                                                                placeholder="">
+                                                                    </div>
+  
+                                                                    <div class="col-sm-6 projtitle">
+                                                                          <label for=""
+                                                                                class="form-label mt-3">Role</label>
+                                                                          <div class="dropdown">
+  
+                                                                                <select id="selectOption"
+                                                                                      class="form-control" required
+                                                                                      data-error="Please select ">
+                                                                                      <option>-- Select your Role --</option>
+                                                                                      <option>Lead</option>
+                                                                                      <option>------------</option>
+                                                                                      <option>DSC Manager</option>
+                                                                                      <option>------------</option>
+                                                                                      <option>Web Head</option>
+                                                                                      <option>Android Head</option>
+                                                                                      <option>Flutter Head</option>
+                                                                                      <option>Head of Media</option>
+                                                                                      <option>Management Head</option>
+                                                                                      <option>Social Media Head</option>
+                                                                                      <option>Head of Content</option>
+                                                                                      <option>Multimedia Head</option>
+                                                                                      <option>------------</option>
+                                                                                      <option>Web Manager</option>
+                                                                                      <option>Android Manager</option>
+                                                                                      <option>Flutter Manager</option>
+                                                                                      <option>------------</option>
+                                                                                      <option>Web Developer</option>
+                                                                                      <option>Android Developer</option>
+                                                                                      <option>Flutter Developer</option>
+                                                                                      <option>Multimedia Coordinator</option>
+                                                                                      <option>Content Writer</option>
+                                                                                      <option>Event Manager</option>
+                                                                                </select>
+  
+  
+                                                                                <!-- refer projects.js for action on selecting the domain -->
+  
+                                                                          </div>
+  
+                                                                    </div>
+  
+                                                              </div>
+  
+                                                        </div>
+                                                  </div>
+                                                  <div class="row resp">
+                                                        <div class="col projtitle">
+                                                              <label for="" class="form-label mt-3">LinkedIn:</label>
+                                                              <input type="text" class="form-control " required
+                                                                    placeholder="">
+                                                        </div>
+                                                  </div>
+                                            </div>
+  
+                                            <div class="col-4 uploaddiv">
+                                                  <div class="demoimage h-100 text-center d-table" id="demoimg"
+                                                        onclick="imgupload();">
+                                                        <div class="uploadimg align-middle d-table-cell">
+                                                              <img src="/images/upload.png" width="60px"
+                                                                    height="60px" alt="">
+                                                              <p>Upload</p>
+  
+  
+                                                              <p class="txtmuted" style="font-size: 0.8rem;">Drag & Drop
+                                                                    or Click to choose</p>
+                                                              <input hidden id="imgupload" type="file" accept="image/*" />
+                                                              <p id="chosenfile" class="text-muted">No file Chosen</p>
+  
+                                                        </div>
+                                                  </div>
+                                            </div>
+                                      </div>
+                                      <div class="row mt-5 d-flex justify-content-center">
+                                            <button class="btn btn-dark addproj mb-2" type="submit">Add Member</button>
+                                      </div>
+                                </div>
+                          </form>
+                    </div>
+              </div>
+        </div>
+  
+       <!-- Table component for team members -->
+       <div class="projectstable mt-5">
+        <div class="tablesp">
+        <table class="table table-bordered  table-striped">
+            <thead class="thead table-dark">
+              <tr>
+                <th class="srno">#</th>
+                <th class="short">Name</th>
+                <th class="short">Email</th>
+                <th class="short">Mobile No.</th>
+                <th class="short">Role</th>
+                <th class="short">GitHub</th>
+                <th class="short">LinkedIn</th>
+                <th class="controls">Controls</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Virat Kohli</td>
+                    <td>virat.kohli@bcci.in</td>
+                    <td>+91 9922992299</td>
+                    <td>Web Developer</td>
+                    <td><a href="#" class="btn btn-link">Click Here</a></td>
+                    <td><a href="#" class="btn btn-link">Click Here</a></td>
+                    <td class="tbuttons">
+                        <div class="t-buttons ">
+                        <button class="btn" ><img src="/images/magnifier.png"></button>
+                        <button class="btn " ><img src="/images/pencil.png"></button>
+                        <button class="btn" ><img src="/images/trashbin.png"></button>
+                        </div>
+                    </td>
+  
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Rohit Sharma</td>
+                    <td>rohit.sharma@bcci.in</td>
+                    <td>+91 9944994499</td>
+                    <td>Android Developer</td>
+                    <td><a href="#" class="btn btn-link">Click Here</a></td>
+                    <td><a href="#" class="btn btn-link">Click Here</a></td>
+                    <td class="tbuttons">
+                        <div class="t-buttons ">
+                        <button class="btn" ><img src="/images/magnifier.png"></button>
+                        <button class="btn " ><img src="/images/pencil.png"></button>
+                        <button class="btn" ><img src="/images/trashbin.png"></button>
+                        </div>
+                    </td>
+  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+        
+        <script src="/js/projects.js"></script>
+  
+    <%- include("../partials/scripts") %> 
+    
+</body>
+</html>
