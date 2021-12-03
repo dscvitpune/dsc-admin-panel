@@ -1,11 +1,17 @@
+const mongoose = require("mongoose");
+const Event = mongoose.model("events");
+
 const home = (req, res) => {
   res.render("pages/index");
 };
 const teams = (req, res) => {
   res.render("pages/teams");
 };
-const events = (req, res) => {
-  res.render("pages/events");
+const events = async (req, res) => {
+  const allEvents = await Event.find({})
+  res.render("pages/events",{
+          Events:allEvents
+  });
 };
 const signIn = (req, res) => {
   res.render("pages/signin");

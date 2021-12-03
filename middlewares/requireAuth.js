@@ -3,7 +3,7 @@ module.exports = {
         if (!req.isAuthenticated())
         {
             req.flash("error_msg", "You need to be logged in");
-            res.redirect("/login");
+            res.redirect("/signin");
         } else
         {
             next();
@@ -12,7 +12,7 @@ module.exports = {
     forwardAuth: (req, res, next) => {
         if (req.isAuthenticated())
         {
-            return res.redirect("dashboard");
+            return res.redirect("/");
         } else
         {
             next();
