@@ -6,11 +6,11 @@ const projectSchema = new Schema({
     description: {type: String, required: true},
     githubLink: {type: String, required: true},
     videoLink: {type: String},
-    // image: {
-    //     type: Buffer,
-    //     data: Buffer,
-    //     contentType: String
-    // }
+    image: {
+        type: Buffer,
+        data: Buffer,
+        contentType: String
+    }
 })
 
 model("projects", projectSchema);
