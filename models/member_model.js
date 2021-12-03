@@ -15,8 +15,15 @@ const memberSchema = new Schema({
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
     linkedInProfile: {type: String, required: true},
+    githubProfile: {type: String, required: true},
     role: {type: String, required: true},
-    specialRole: {type: String}
+    mobileNumber : {type: Number, required: false},
+    image: {
+        type: Buffer,
+        data: Buffer,
+        contentType: String
+    }
 });
+
 
 model("members", memberSchema);
