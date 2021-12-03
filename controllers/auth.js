@@ -3,14 +3,6 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const User = mongoose.model("users");
 
-// const getProfiles = async (req, res) => {
-//     try {
-//         const allUsers = await User.find({});
-//         res.send(allUsers)
-//     } catch (e) {
-//         console.error(e);
-//     }
-// }
 
 const signUp = async (req, res) => {
     const { firstName, lastName, email, password, confirmPassword } = req.body;
@@ -54,8 +46,8 @@ const signUp = async (req, res) => {
 const logIn = (req, res, next) => {
     debugger;
     passport.authenticate('local', {
-        successRedirect: '/dashboard',
-        failureRedirect: '/login',
+        successRedirect: '/',
+        failureRedirect: '/signin',
         failureFlash: true
     })(req, res, next);
 };
@@ -68,4 +60,3 @@ const logOut = (req, res) => {
 exports.signUp = signUp;
 exports.logIn = logIn;
 exports.logOut = logOut;
-// exports.getProfiles = getProfiles;

@@ -16,11 +16,11 @@ duration.addEventListener('input', (e) => {
         row.innerHTML = `
         <div class="form-group col-xs-8 col-md-6 days">
             <label for="day-${i+1}" class="control-label" style="float: left;">day-${i+1}</label>
-            <input type="date"  class="form-control" id="day-${i+1}"  style="background-color: #D7DBDD;">
+            <input type="date"  class="form-control" id="day-${i+1}" name="day"  style="background-color: #D7DBDD;">
         </div>
         <div class="form-group col-xs-8 col-md-6 slots" >
             <label for="slot-${i+1}" class="control-label"  style="float: left;">Number of slots</label>
-            <input type="number"  class="form-control" id="slot-${i+1}"  style="background-color: #D7DBDD;">
+            <input type="number"  class="form-control" id="slot-${i+1}" name="slots" style="background-color: #D7DBDD;">
         </div>`
         // append in selected division
         daySlotsRow.appendChild(row)
@@ -53,11 +53,11 @@ duration.addEventListener('input', (e) => {
                     slotsRow.innerHTML = `
                     <div class="form-group col-xs-8 col-md-6 slots" style="margin-right:5px">
                         <label for="slot-${i+1}" class="control-label" style="float: left;">slot-${i+1}</label>
-                        <input placeholder="Start time" type="time" class="form-control" style="background-color: #D7DBDD;">
+                        <input placeholder="Start time" type="time" name="slot_start" class="form-control" style="background-color: #D7DBDD;">
                     </div>
                     <div class="form-group col-xs-8 col-md-6 slots">
                         <label for="slot-${i+1}" class="control-label" style="float: left;">slot-${i+1}</label>
-                        <input placeholder="End time" type="time" class="form-control" style="background-color: #D7DBDD;">
+                        <input placeholder="End time" type="time" name="slot_end" class="form-control" style="background-color: #D7DBDD;">
                     </div>
                     `
                     //append one row each
