@@ -11,7 +11,11 @@
       <!--start Event form-->
       <div class="events1">
         <h1 style="align-self: center">EVENT FORM</h1>
-        <form action="/events/newEvent"  method="post" enctype="multipart/form-data">
+        <form
+          action="/events/newEvent"
+          method="post"
+          enctype="multipart/form-data"
+        >
           <div class="main-container">
             <div class="container py-3">
               <div class="row">
@@ -122,9 +126,7 @@
                     </div>
                   </div>
                   <div id="day-slots-row">
-
-              
-                  <!-- <% for (var i=1; i <=2;  i++ ) { %>
+                    <!-- <% for (var i=1; i <=2;  i++ ) { %>
                     <div class="form-group col-xs-8 col-md-6 days">
                       <label for="day-${i+1}" class="control-label" style="float: left;">day-${i+1}</label>
                       <input type="date"  class="form-control" id="day-${i+1}" name="day"  style="background-color: #D7DBDD;">
@@ -135,9 +137,6 @@
                     </div>
                     
                     <% } %> -->
-              
-              
-
                   </div>
                   <script src="/js/dynamicfields.js"></script>
                 </div>
@@ -148,8 +147,8 @@
                     </div>
                     <header>Drag & Drop to Upload File</header>
                     <span>OR</span>
-                    <button>Browse File</button> -->
-                    <input type="file" name="image"/>
+                    <button type="button">Browse File</button> -->
+                    <input type="file" id="removeValue" name="image"  />
                     <script src="/js/dragdrop.js"></script>
                   </div>
                 </div>
@@ -170,94 +169,100 @@
           </div>
         </form>
       </div>
-   
 
-     
       <div class="events">
         <h1>EVENTS</h1>
         <ul class="ml-5">
-        <% Events.forEach(event=>{ %>
+          <% Events.forEach(event=>{ %>
           <li class="card">
             <div class="container py-3">
-                <div class="row">
-                  <div class="col-md-7 px-3">
-                    <div class="card-block px-6">
-                      <h4 class="card-title"><%= event.title %></h4>
-                      <div class="row">
-                        <div class="col-sm-6 col-md-6 venue">
-                          <p><%=event.venue%></p>
-                        </div>
-                        <div class="col-sm-6 col-md-6 status">
-                          <p><%=event.status%></p>
-                        </div>
+              <div class="row">
+                <div class="col-md-7 px-3">
+                  <div class="card-block px-6">
+                    <h4 class="card-title"><%= event.title %></h4>
+                    <div class="row">
+                      <div class="col-sm-6 col-md-6 venue">
+                        <p><%=event.venue%></p>
                       </div>
-          
-                      <p class="card-text">
-                        <%=event.description%>
+                      <div class="col-sm-6 col-md-6 status">
+                        <p><%=event.status%></p>
+                      </div>
+                    </div>
+
+                    <p class="card-text"><%=event.description%></p>
+                    <div class="d-flex flex-row">
+                      <i class="fa fa-calendar" style="font-size: 25px"></i>
+                      <p style="padding-left: 7px; font-size: large">
+                        <%=event.date%>
                       </p>
-                      <div class="d-flex flex-row">
-                        <i class="fa fa-calendar" style="font-size: 25px"></i>
-                        <p style="padding-left: 7px; font-size: large">
-                          <%=event.date%>
-                        </p>
-                      </div>
-                      <div class="d-flex flex-row">
-                        <a href="<%= event.registrationLink%>">
-                          <button
+                    </div>
+                    <div class="d-flex flex-row">
+                      <a target="_blank" href="<%= event.registrationLink%>">
+                        <button
                           type="button"
-                          
                           class="btn btn-primary"
                           style="margin: 5px"
-                          
-                          >
+                        >
                           Register
                         </button>
                       </a>
-                          <button
-                          type="submit"
-                          class="btn btn-danger"
-                          style="margin: 5px"
-                          onclick="deleteEvent(`<%= event._id %>`)"
-                          >
-                          Delete
-                        </button>
-                        
-                        <button
-                          type="button"
-                          class="btn btn-info"
-                          style="margin: 5px"
-                        >
-                          Edit
-                        </button>
-                      </div>
+                      <button
+                        type="submit"
+                        class="btn btn-danger"
+                        style="margin: 5px"
+                        onclick="deleteEvent(`<%= event._id %>`)"
+                      >
+                        Delete
+                      </button>
+
+                      <button
+                        type="button"
+                        class="btn btn-info"
+                        style="margin: 5px"
+                      >
+                        Edit
+                      </button>
                     </div>
                   </div>
-                  <div class="col-md-5" style="text-align: center">
-                    <img class="img-fluid h-100"  src="data:image/<%=event.image.contentType%>;base64,<%=event.image.data%>.toString('base64')"  alt="<%=event.title%>" >
-                  </div>
+                </div>
+                <div class="col-md-5" style="text-align: center">
+                  <img
+                    class="img"
+                    height="300px"
+                    src="data:image/<%=event.image.contentType%>;base64,<%=event.image.data.toString('base64')%>"
+                    alt="<%=event.title%>"
+                  />
                 </div>
               </div>
-            </li>
-            <br>
-            <% }) %>  
-          </ul>
-        </div>
+            </div>
+          </li>
+          <br />
+          <% }) %>
+        </ul>
+      </div>
     </div>
     <%- include("../partials/scripts") %>
+    <!-- <script>
+      window.addEventListener("load", (event) => {
+        document.getElementById("removeValue").style.color = "transparent";
+        document.getElementById("removeValue").style.display = "block";
+        document.getElementById("removeValue").style.marginLeft = "auto";
+        document.getElementById("removeValue").style.marginRight = "auto";
+      });
+    </script> -->
     <script>
-      const deleteEvent = async(_id)=>{  
-      const id = {id:_id};
-      let res = await fetch('/events/deleteEvent',{
-              method: 'POST',
-              headers: {
-              'Content-Type': 'application/json',
-               },
-              body:JSON.stringify(id),
-            })
-      console.log(res)
-      location.reload();
-      }
+      const deleteEvent = async (_id) => {
+        const id = { id: _id };
+        let res = await fetch("/events/deleteEvent", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(id),
+        });
+        console.log(res);
+        location.reload();
+      };
     </script>
   </body>
 </html>
-
