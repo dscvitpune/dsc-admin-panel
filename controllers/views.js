@@ -7,6 +7,14 @@ const Member = model("members");
 const home = (req, res) => {
   res.render("pages/index");
 };
+const editEvent = async (req, res) => {
+  const response = await Event.findById(req.params.id)
+  res.render("pages/EditEvent",{event:response});
+};
+const editTeam = async (req, res) => {
+  const response = await Member.findById(req.params.id)
+  res.render("pages/EditTeams",{member:response});
+};
 const teams = async (req, res) => {
   try {
     const allMembers = await Member.find({});
@@ -43,6 +51,8 @@ module.exports = {
   teams,
   events,
   signIn,
-  projects
+  projects,
+  editEvent,
+  editTeam
 };
 

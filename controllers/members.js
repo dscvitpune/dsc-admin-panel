@@ -151,15 +151,18 @@ const displayOne = async (req, res) => {
 }
 const updateMember = async (req, res) => {
     const {id, firstName, lastName, linkedInProfile, role, specialRole} = req.body;
+    console.log(req.body)
     try {
-        let updatedMember = await Member.findByIdAndUpdate({
+        let updatedMember = await Member.findByIdAndUpdate(id,{
             firstName,
             lastName,
             linkedInProfile,
             role,
             specialRole: (specialRole)? specialRole : null
         }, {new: true});
-        res.status(200).json({updatedMember});
+            res.redirect("/teams");
+
+        // res.status(200).json({updatedMember});
     } catch (e) {
         console.error(e);
         res.status(300).json({message: "something went wrong"});

@@ -177,8 +177,7 @@
                               <td><a href="<%= member.linkedInProfile%>" class="btn btn-link">Click Here</a></td>
                               <td class="tbuttons">
                               <div class="t-buttons ">
-                              <button class="btn" ><img src="images/magnifier.png"></button>
-                              <button class="btn" ><img src="images/pencil.png"></button>
+                              <button class="btn" onclick="editTeam(`<%= member._id%>`)" ><img src="images/pencil.png"></button>
                               <button class="btn" onClick="handleDelete(`<%= member._id%>`)"><img src="images/trashbin.png"></button>
                               </div>
                               </td>
@@ -202,6 +201,11 @@
                         })
                   console.log(res)
                   location.reload();
+            }
+
+            const editTeam = (id)=>{
+                  window.location.href = `http://localhost:5000/editMember/${id}`;
+
             }
       </script> 
         <script src="js/projects.js"></script>

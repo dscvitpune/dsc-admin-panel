@@ -78,8 +78,13 @@ const updateEvent = async (req, res) => {
     slots,
   } = req.body;
   try {
-    // let existingEvent = await Event.findById(id);
-    // console.log("Existing",existingEvent);
+    if(req.file) {
+      const image = {
+        data: req.file.buffer,
+        contentType: req.file.mimetype
+    }
+    }
+    
     let updateEvent = {
       title,
       venue,
@@ -92,7 +97,9 @@ const updateEvent = async (req, res) => {
       slots,
     };
     let response = await Event.findByIdAndUpdate(id,updateEvent);
-    res.status(200).json({message:"Record Updated"})
+    res.redirect("/event");
+
+    // res.status(200).json({message:"Record Updated",response:response})
   } catch (error) {
     console.error(error);
     res.status(300).json({ message: "something went wrong" });
