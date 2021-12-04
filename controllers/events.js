@@ -13,14 +13,15 @@ const newEvent = async (req, res) => {
     updatedAt,
     slots,
   } = req.body;
+
   try {
     const existingEvent = await Event.findOne({ title });
     if (existingEvent) throw "event already exists";
 
-    // const image = {
-    //     data: req.file.buffer,
-    //     contentType: req.file.mimetype
-    // }
+    const image = {
+        data: req.file.buffer,
+        contentType: req.file.mimetype
+    }
     let newEvent = await new Event({
       title,
       venue,
@@ -30,12 +31,12 @@ const newEvent = async (req, res) => {
       status,
       registrationLink,
       updatedAt: new Date(),
-      updatedAt,
       slots,
-      image: req.file.buffer,
+      image,
     }).save();
     console.log(newEvent);
-    res.status(200).json({ newEvent });
+    // res.status(200).json({ newEvent });
+    res.redirect("/event");
   } catch (e) {
     console.error(e);
     res.status(300).json({ message: "something went wrong" });
@@ -124,3 +125,4 @@ exports.getEvent = getEvent;
 exports.newEvent = newEvent;
 exports.deleteEvent = deleteEvent;
 exports.updateEvent = updateEvent;
+
