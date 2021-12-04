@@ -1,3 +1,4 @@
+const upload = require("../middlewares/upload")
 const {
     createMember,
     getAllMembers,
@@ -10,11 +11,12 @@ const {
     dscProjectManagers,
     dscManagement,
     deleteMember,
+    displayOne,
     updateMember
 } = require('../controllers/members');
 
 module.exports = (app) => {
-    app.post('/team/newMember', createMember);
+    app.post('/team/newMember',upload.single("image"), createMember);
     app.get('/team/allMembers', getAllMembers);
     app.get('/team/dscLead', dscLead);
     app.get('/team/dscHeads', dscHeads);
@@ -24,6 +26,7 @@ module.exports = (app) => {
     app.get('/team/dscMultimediaTeam', dscMultimediaTeam);
     app.get('/team/dscManagement', dscManagement);
     app.get('/team/projectManagers', dscProjectManagers);
-    app.delete('/team/deleteMember', deleteMember),
+    app.get('/team/displayOne', upload.single("image"),displayOne);
+    app.post('/team/deleteMember', deleteMember),
     app.put('/team/updateMember', updateMember)
 }

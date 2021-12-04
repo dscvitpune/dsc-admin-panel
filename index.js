@@ -24,6 +24,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public/css'));
+app.use(express.static(__dirname + '/public/images'));
+app.use(express.static(__dirname + '/public/js'));
 // app.use(express.static("public"));
 app.set("view engine", "ejs");
 
@@ -43,13 +46,13 @@ app.use(passport.session());
 app.use(flash());
 
 app.use((req, res, next) => {
-  res.locals.success_msg = req.flash("success_msg");
-  res.locals.error_msg = req.flash("error_msg");
-  res.locals.error = req.flash("error");
-  next();
-});
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    next();
+})
 
-app.use("/uploads", express.static("./uploads"));
+app.use('/uploads', express.static('./uploads'));
 
 const uri = process.env.ATLAS_URI;
 mongoose.Promise = global.Promise;

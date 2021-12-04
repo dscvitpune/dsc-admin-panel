@@ -1,131 +1,139 @@
-.txtarea{
-    width: 100%;
+.txtarea {
+	width: 100%;
 }
-.projectform{
-    width: 95%;
+.projectform {
+	width: 95%;
 }
-.demoimage{
-  width: 100%;
-    border: 2px dashed;
-    border-color: rgb(138, 138, 138);
-    border-radius: 1rem;
- 
+.demoimage {
+	width: 100%;
+	border: 2px dashed;
+	border-color: rgb(138, 138, 138);
+	border-radius: 1rem;
 }
-.demoimage div p,input{
-    font-family: 'Poppins', sans-serif;
+.demoimage div p,
+input {
+	font-family: "Poppins", sans-serif;
 }
-.txtmuted{
-    color: rgb(177, 177, 177);
+.txtmuted {
+	color: rgb(177, 177, 177);
 }
-.addproj{
-    width:fit-content;
-    font-family: 'Poppins', sans-serif;
-    border-radius: 1rem;
-    padding: 0.5rem 3rem 0.5rem 3rem;
-    cursor: pointer;
-   
+.addproj {
+	width: fit-content;
+	font-family: "Poppins", sans-serif;
+	border-radius: 1rem;
+	padding: 0.5rem 3rem 0.5rem 3rem;
+	cursor: pointer;
 }
-#file-upload-button{
-    display: none;
+#file-upload-button {
+	display: none;
 }
-.form{
-    border-color: rgb(177, 177, 177);
-    border-radius: 0.6rem;
-    box-shadow: 3px 7px 20px rgb(221, 232, 255);
-    max-width: 70%;
-    padding: 2rem;
+.form {
+	border-color: rgb(177, 177, 177);
+	border-radius: 0.6rem;
+	box-shadow: 3px 7px 20px rgb(221, 232, 255);
+	max-width: 70%;
+	padding: 2rem;
 }
-.upload{
-    width: 400px;
+.upload {
+	width: 400px;
 }
-.demoimage div{
-    padding: 0rem 0.5rem 0.5rem 0.5rem;
+.demoimage div {
+	padding: 0rem 0.5rem 0.5rem 0.5rem;
 }
 
 @media only screen and (min-width: 570px) {
-    .tablesp{
-        display: flex;
-    }
+	.tablesp {
+		display: flex;
+	}
 }
 @media only screen and (max-width: 570px) {
-    .uploaddiv {
-      width: 100%;
-      margin-top: 2.4rem;
-    }
-    .demoimage div{
-        padding-top: 1rem;
-    }
-    .resp{
-        display: block;
-        flex-wrap: nowrap;
-    }
-    .form{
-        max-width: 90%;
-    }
-    .domain{
-        margin-top: 1rem;
-    }
-    .projectstable{
-        overflow: auto;
-        margin-left: 5rem;
-        width: 100%;
-    }
-    .tablesp{
-        margin-left: 3rem;
-    }
-    .table{
-       width: 100%; 
-    }
+	.uploaddiv {
+		width: 100%;
+		margin-top: 2.4rem;
+	}
+	.demoimage div {
+		padding-top: 1rem;
+	}
+	.resp {
+		display: block;
+		flex-wrap: nowrap;
+	}
+	.form {
+		max-width: 90%;
+	}
+	.domain {
+		margin-top: 1rem;
+	}
+	.projectstable {
+		overflow: auto;
+		margin-left: 5rem;
+		width: 100%;
+	}
+	.tablesp {
+		margin-left: 3rem;
+	}
+	.table {
+		width: 100%;
+	}
 }
-.tablesp{
-    margin:auto;
-justify-content: center;
+.tablesp {
+	margin: auto;
+	justify-content: center;
 }
-.form-control{
-    background-color: rgb(236, 236, 236);  
+.form-control {
+	background-color: rgb(236, 236, 236);
 }
-.domainselect{
-    width: 99%;
+.domainselect {
+	width: 99%;
 }
-.titl{
-    margin-left: 15%;
-    margin-top: 2rem;
+.titl {
+	margin-left: 15%;
+	margin-top: 2rem;
 }
-.tbuttons button{
-padding: 0.0rem;
-    width:30px;
-    height:30px;
+.tbuttons button {
+	padding: 0rem;
+	width: 30px;
+	height: 30px;
 }
-.tbuttons button:not(:nth-child(3)){
-    margin-right: 0.3rem;
+.tbuttons button:not(:nth-child(3)) {
+	margin-right: 0.3rem;
 }
-.tbuttons button img{
-    width:23px;
-    height:23px;
+.tbuttons button img {
+	width: 23px;
+	height: 23px;
 }
-.tbuttons button:nth-child(1){background-color: rgb(10, 155, 86);}
-.tbuttons button:nth-child(2){background-color: rgb(83, 125, 190);}
-.tbuttons button:nth-child(3){background-color: rgb(229, 70, 53);}
-
-.tbuttons{
-    height: 100%;
-   vertical-align: middle;
+.tbuttons button:nth-child(1) {
+	background-color: rgb(10, 155, 86);
 }
-.t-buttons{
-    justify-content: center;
-    display: flex;
+.tbuttons button:nth-child(2) {
+	background-color: rgb(83, 125, 190);
 }
-.short{
-    width: 7%;
-}
-.table tbody tr td{
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-all;
-}
-.table{
-    text-align:center;
-    width: fit-content;
-    max-width: 85%;
+.tbuttons button:nth-child(3) {
+	background-color: rgb(229, 70, 53);
 }
 
+.tbuttons {
+	height: 100%;
+	vertical-align: middle;
+}
+.t-buttons {
+	justify-content: center;
+	display: flex;
+}
+.short {
+	width: 7%;
+}
+.table tbody tr td {
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+.table {
+	text-align: center;
+	width: fit-content;
+	max-width: 85%;
+}
+.table-teams {
+	text-align: center;
+	max-width: 85%;
+}

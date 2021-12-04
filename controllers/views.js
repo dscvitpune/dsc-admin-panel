@@ -1,11 +1,19 @@
-const mongoose = require("mongoose");
-const Event = mongoose.model("events");
+const {model} = require("mongoose");
+
+const Project = model("projects");
+const Event = model("events");
+const Member = model("members");
 
 const home = (req, res) => {
   res.render("pages/index");
 };
-const teams = (req, res) => {
-  res.render("pages/teams");
+const teams = async (req, res) => {
+  try {
+    const allMembers = await Member.find({});
+    res.render("pages/teams", {allMembers: allMembers});
+  } catch (e) {
+    res.status(300).json({ message: e.toString() });
+  }
 };
 const events = async (req, res) => {
   const allEvents = await Event.find({})
@@ -16,8 +24,18 @@ const events = async (req, res) => {
 const signIn = (req, res) => {
   res.render("pages/signin");
 };
-const projects = (req, res) => {
-  res.render("pages/projects");
+const projects = async  (req, res) => {
+  try {
+    const allProjects = await Project.find({});
+    allProjects.forEach((project) => {
+      console.log(project.projectTitle);
+    })
+    res.render("pages/projects", {
+      allProjects: allProjects
+    });
+  } catch (e) {
+    res.status(300).json({ message: e.toString() });
+  }
 };
 
 module.exports = {
