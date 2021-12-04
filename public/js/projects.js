@@ -47,8 +47,9 @@ var chosendomain;
         /**listening for click event of multiple options */
     ['item1','item2','item3'].forEach(item=>{
         document.getElementById(item).addEventListener('click',(e)=>{
-        chosendomain=e.target.innerHTML;
+        chosendomain=e.target.value;
+        // console.log(e.target.value);
         /**displaying the selected option */
-        document.getElementById('chosedomain').innerText=e.target.innerHTML;
+        document.getElementById('chosedomain').innerHTML=chosendomain;
         })
     })

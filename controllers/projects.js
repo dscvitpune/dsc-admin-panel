@@ -3,26 +3,19 @@ const Project = mongoose.model("projects");
 
 
 const newProject = async (req, res) => {
-    const { projectTitle, domain, description, githubLink, videoLink } = req.body;
+    const { title, domain, desc, github, video } = req.body;
     try
     {    
-        const existingProject = await Project.findOne({ projectTitle });
-        if (existingProject) throw "project already exists";
-        console.log("req.file: ");
-        console.log(req.file);
-        console.log("req.file.buffer: ");
-        console.log(req.file.buffer);
         let newProject = await new Project({
-            projectTitle,
+            projectTitle: title,
             domain,
-            description,
-            githubLink,
-            videoLink,
+            description: desc,
+            githubLink: github,
+            videoLink: video,
             image: req.file.buffer
         }).save();
 
-        console.log(newProject);
-        res.status(200).json({ newProject });
+        res.redirect('/project')
     } catch (e)
     {
         console.error(e);
