@@ -1,4 +1,5 @@
 const { signUp, logIn, logOut } = require("../controllers/auth");
+const {restrictUnauth} = require("../middlewares/requireAuth")
 
 
 // router.use(express.static('../public'));
@@ -17,6 +18,6 @@ const { signUp, logIn, logOut } = require("../controllers/auth");
 module.exports = (app) => {
     app.post("/auth/signup", signUp);
     app.post("/auth/login", logIn);
-    app.get("/auth/logout", logOut);
+    app.post("/auth/logout",restrictUnauth,logOut);
     // app.get("/auth/allUsers", getProfiles);
 }

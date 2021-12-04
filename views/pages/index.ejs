@@ -4,7 +4,7 @@
     <%- include("../partials/head") %> 
   <body>
     <div class="container p-2">
-        <h3 class="py-5">Dashboard</h3>
+        <h3 class="py-5">Dashboard</h3> <span><button onclick="userLogout()">Logout</button></span>
       <div class="row">
         <div class="col-md-4 mx-auto">
           <div class="card mt-3 shadow-sm">
@@ -18,7 +18,7 @@
                 content.
               </p>
               <div class="text-center">
-                  <a href="#" class="btn btn-success rounded-pill">Create</a>
+                  <a href="/event" class="btn btn-success rounded-pill">Create</a>
               </div>
             </div>
           </div>
@@ -35,7 +35,7 @@
                 content.
               </p>
               <div class="text-center">
-                  <a href="#" class="btn btn-danger rounded-pill">Create</a>
+                  <a href="/teams" class="btn btn-danger rounded-pill">Create</a>
               </div>
             </div>
           </div>
@@ -52,7 +52,7 @@
                 content.
               </p>
               <div class="text-center">
-                  <a href="#" class="btn btn-warning rounded-pill text-light">Create</a>
+                  <a href="/project" class="btn btn-warning rounded-pill text-light">Create</a>
               </div>
             </div>
           </div>
@@ -78,5 +78,14 @@
     </div> -->
     <%- include("../partials/scripts") %> 
     <!-- <script src="./js/table.js"></script> -->
+    <script>
+        const userLogout = async()=>{
+        const response = await fetch('/auth/logout', {
+                                      method: 'POST', 
+                                    });
+        console.log(response)
+        location.reload();
+      }
+    </script>
   </body>
 </html>

@@ -54,7 +54,7 @@ const logIn = (req, res, next) => {
 
 const logOut = (req, res) => {
     req.logout();
-    res.redirect("/dashboard");
+    res.redirect("/signin");
 }
 
 exports.signUp = signUp;
