@@ -14,6 +14,7 @@ const {model, Schema} = require('mongoose');
 const memberSchema = new Schema({
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
+    email: {type: String, required: true},
     linkedInProfile: {type: String, required: true},
     githubProfile: {type: String, required: true},
     role: {type: String, required: true},

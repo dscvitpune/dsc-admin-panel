@@ -27,6 +27,6 @@ module.exports = (app) => {
     app.get('/team/dscManagement', dscManagement);
     app.get('/team/projectManagers', dscProjectManagers);
     app.get('/team/displayOne', upload.single("image"),displayOne);
-    app.delete('/team/deleteMember', deleteMember),
+    app.post('/team/deleteMember', deleteMember),
     app.put('/team/updateMember', updateMember)
 }

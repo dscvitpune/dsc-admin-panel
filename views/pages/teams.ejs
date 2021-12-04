@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <%- include("../partials/head") %> 
+    <link rel="stylesheet" href="css/projects.css">
 </head>
 <body>
     <body>
@@ -12,7 +13,7 @@
               </div>
               <div class="projectform">
                     <div>
-                          <form method="post">
+                          <form method="POST", action="/team/newMember" enctype="multipart/form-data">
                                 <p class="display-6 titl mb-4"><b>Teams</b></p>
                                 <div class="form mx-auto">
                                       <div class="row">
@@ -20,12 +21,12 @@
                                                   <div class="row resp">
                                                         <div class="col projtitle">
                                                               <label for="" class="form-label">First Name </label>
-                                                              <input type="text" class="form-control " required
+                                                              <input type="text" name="firstName" class="form-control " required
                                                                     placeholder="">
                                                         </div>
                                                         <div class="col domain">
                                                               <label for="" class="form-label">Last Name</label>
-                                                              <input type="text" class="form-control " required
+                                                              <input type="text" name="lastName" class="form-control " required
                                                                     placeholder="">
   
                                                         </div>
@@ -36,14 +37,14 @@
                                                                     <div class="col projtitle">
                                                                           <label for=""
                                                                                 class="form-label mt-3">GitHub</label>
-                                                                          <input type="text" class="form-control "
+                                                                          <input type="text" name="githubProfile" class="form-control "
                                                                                 required placeholder="">
   
                                                                     </div>
                                                                     <div class="col domain">
                                                                           <label for=""
                                                                                 class="form-label mt-3">Email</label>
-                                                                          <input type="text" required class="form-control"
+                                                                          <input type="text" name="email" required class="form-control"
                                                                                 placeholder="">
                                                                     </div>
   
@@ -57,7 +58,7 @@
                                                                     <div class="col domain">
                                                                           <label for=""
                                                                                 class="form-label mt-3">Contact</label>
-                                                                          <input type="text" required class="form-control"
+                                                                          <input type="text" name="mobileNumber" required class="form-control"
                                                                                 placeholder="">
                                                                     </div>
   
@@ -66,33 +67,33 @@
                                                                                 class="form-label mt-3">Role</label>
                                                                           <div class="dropdown">
   
-                                                                                <select id="selectOption"
+                                                                                <select id="selectOption" name="role"
                                                                                       class="form-control" required
                                                                                       data-error="Please select ">
                                                                                       <option>-- Select your Role --</option>
-                                                                                      <option>Lead</option>
+                                                                                      <option value="Lead">Lead</option>
                                                                                       <option>------------</option>
-                                                                                      <option>DSC Manager</option>
+                                                                                      <option value="DSC Manager">DSC Manager</option>
                                                                                       <option>------------</option>
-                                                                                      <option>Web Head</option>
-                                                                                      <option>Android Head</option>
-                                                                                      <option>Flutter Head</option>
-                                                                                      <option>Head of Media</option>
-                                                                                      <option>Management Head</option>
-                                                                                      <option>Social Media Head</option>
-                                                                                      <option>Head of Content</option>
-                                                                                      <option>Multimedia Head</option>
-                                                                                      <option>------------</option>
-                                                                                      <option>Web Manager</option>
-                                                                                      <option>Android Manager</option>
-                                                                                      <option>Flutter Manager</option>
-                                                                                      <option>------------</option>
-                                                                                      <option>Web Developer</option>
-                                                                                      <option>Android Developer</option>
-                                                                                      <option>Flutter Developer</option>
-                                                                                      <option>Multimedia Coordinator</option>
-                                                                                      <option>Content Writer</option>
-                                                                                      <option>Event Manager</option>
+                                                                                      <option value="Web Head">Web Head</option>
+                                                                                      <option value="Android Head">Android Head</option>
+                                                                                      <option value="Flutter Head">Flutter Head</option>
+                                                                                      <option value="Head of Media">Head of Media</option>
+                                                                                      <option value="Management Head">Management Head</option>
+                                                                                      <option value="Social Media Head">Social Media Head</option>
+                                                                                      <option value="Head of Content">Head of Content</option>
+                                                                                      <option value="Multimedia Head">Multimedia Head</option>
+                                                                                      <option >------------</option>
+                                                                                      <option value="Web Manager<">Web Manager</option>
+                                                                                      <option value="Android Manager">Android Manager</option>
+                                                                                      <option value="Flutter Manager">Flutter Manager</option>
+                                                                                      <option >------------</option>
+                                                                                      <option value="Web Developer">Web Developer</option>
+                                                                                      <option value="Android Developer">Android Developer</option>
+                                                                                      <option value="Flutter Developer">Flutter Developer</option>
+                                                                                      <option value="Multimedia Coordinator">Multimedia Coordinator</option>
+                                                                                      <option value="Content Writer">Content Writer</option>
+                                                                                      <option value="Event Manager">Event Manager</option>
                                                                                 </select>
   
   
@@ -109,14 +110,17 @@
                                                   <div class="row resp">
                                                         <div class="col projtitle">
                                                               <label for="" class="form-label mt-3">LinkedIn:</label>
-                                                              <input type="text" class="form-control " required
+                                                              <input type="text" name="linkedInProfile" class="form-control " required
                                                                     placeholder="">
                                                         </div>
                                                   </div>
                                             </div>
   
                                             <div class="col-4 uploaddiv">
-                                                  <div class="demoimage h-100 text-center d-table" id="demoimg"
+                                                  
+                                                <input  id="imgupload" type="file" name="image"/>
+                                                <p id="chosenfile" class="text-muted">No file Chosen</p>
+                                                  <!-- <div class="demoimage h-100 text-center d-table" id="demoimg"
                                                         onclick="imgupload();">
                                                         <div class="uploadimg align-middle d-table-cell">
                                                               <img src="images/upload.png" width="60px"
@@ -126,11 +130,9 @@
   
                                                               <p class="txtmuted" style="font-size: 0.8rem;">Drag & Drop
                                                                     or Click to choose</p>
-                                                              <input hidden id="imgupload" type="file" accept="image/*" />
-                                                              <p id="chosenfile" class="text-muted">No file Chosen</p>
   
                                                         </div>
-                                                  </div>
+                                                  </div> -->
                                             </div>
                                       </div>
                                       <div class="row mt-5 d-flex justify-content-center">
@@ -145,60 +147,58 @@
        <!-- Table component for team members -->
        <div class="projectstable mt-5">
         <div class="tablesp">
-        <table class="table table-bordered  table-striped">
+        <table class="table-teams table table-bordered  table-striped">
             <thead class="thead table-dark">
               <tr>
-                <th class="srno">#</th>
-                <th class="short">Name</th>
-                <th class="short">Email</th>
-                <th class="short">Mobile No.</th>
-                <th class="short">Role</th>
-                <th class="short">GitHub</th>
-                <th class="short">LinkedIn</th>
-                <th class="controls">Controls</th>
+                <th style="width: 1.5%;">#</th>
+                <th style="width:5%;">Name</th>
+                <th style="width:5%;">Email</th>
+                <th style="width:5%;">Mobile No.</th>
+                <th style="width:5%;">Role</th>
+                <th style="width:1%;">GitHub</th>
+                <th style="width:0.5%;">LinkedIn</th>
+                <th style="width:1%;">Controls</th>
               </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Virat Kohli</td>
-                    <td>virat.kohli@bcci.in</td>
-                    <td>+91 9922992299</td>
-                    <td>Web Developer</td>
-                    <td><a href="#" class="btn btn-link">Click Here</a></td>
-                    <td><a href="#" class="btn btn-link">Click Here</a></td>
-                    <td class="tbuttons">
-                        <div class="t-buttons ">
-                        <button class="btn" ><img src="images/magnifier.png"></button>
-                        <button class="btn " ><img src="images/pencil.png"></button>
-                        <button class="btn" ><img src="images/trashbin.png"></button>
-                        </div>
-                    </td>
-  
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Rohit Sharma</td>
-                    <td>rohit.sharma@bcci.in</td>
-                    <td>+91 9944994499</td>
-                    <td>Android Developer</td>
-                    <td><a href="#" class="btn btn-link">Click Here</a></td>
-                    <td><a href="#" class="btn btn-link">Click Here</a></td>
-                    <td class="tbuttons">
-                        <div class="t-buttons ">
-                        <button class="btn" ><img src="images/magnifier.png"></button>
-                        <button class="btn " ><img src="images/pencil.png"></button>
-                        <button class="btn" ><img src="images/trashbin.png"></button>
-                        </div>
-                    </td>
-  
-                </tr>
+                  <% allMembers.forEach((member, idx) => { %>
+                        <tr>
+                              <td><%= idx+1%></td>
+                              <td><%= member.firstName + " " + member.lastName%></td>
+                              <td><%= member.email%></td>
+                              <td><%= member.mobileNumber%></td>
+                              <td><%= member.role%></td>
+                              <td><a href="<%= member.githubProfile%>" class="btn btn-link">Click Here</a></td>
+                              <td><a href="<%= member.linkedInProfile%>" class="btn btn-link">Click Here</a></td>
+                              <td class="tbuttons">
+                              <div class="t-buttons ">
+                              <button class="btn" ><img src="images/magnifier.png"></button>
+                              <button class="btn" ><img src="images/pencil.png"></button>
+                              <button class="btn" onClick="handleDelete(`<%= member._id%>`)"><img src="images/trashbin.png"></button>
+                              </div>
+                              </td>
+                              
+                        </tr>
+                  <%}); %>
+                
             </tbody>
         </table>
     </div>
     </div>
-
-        
+      <script>
+            const handleDelete = async(_id)=>{  
+                  const id = {id:_id};
+                  let res = await fetch('/team/deleteMember',{
+                        method: 'POST',
+                        headers: {
+                        'Content-Type': 'application/json',
+                        },
+                        body:JSON.stringify(id),
+                        })
+                  console.log(res)
+                  location.reload();
+            }
+      </script> 
         <script src="js/projects.js"></script>
   
     <%- include("../partials/scripts") %> 

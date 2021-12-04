@@ -2,12 +2,18 @@ const {model} = require("mongoose");
 
 const Project = model("projects");
 const Event = model("events");
+const Member = model("members");
 
 const home = (req, res) => {
   res.render("pages/index");
 };
-const teams = (req, res) => {
-  res.render("pages/teams");
+const teams = async (req, res) => {
+  try {
+    const allMembers = await Member.find({});
+    res.render("pages/teams", {allMembers: allMembers});
+  } catch (e) {
+    res.status(300).json({ message: e.toString() });
+  }
 };
 const events = async (req, res) => {
   const allEvents = await Event.find({})

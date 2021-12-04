@@ -6,13 +6,14 @@ const createMember = async (req, res) => {
     // console.log(req.file)
     console.log(req.body)
     console.log(req.file)
-    const {firstName, lastName, linkedInProfile, role, githubProfile,mobileNumber} = req.body;
+    const {firstName, lastName, email, linkedInProfile, role, githubProfile,mobileNumber} = req.body;
     const image=req.file.buffer;
     
     try {
         let newMember = await new Member({
             firstName,
     lastName,
+    email,
     linkedInProfile,
     githubProfile,
     role,
@@ -20,8 +21,8 @@ const createMember = async (req, res) => {
     image
         }).save();
 
-        console.log(newMember);
-        res.status(200).json(newMember);
+    console.log(newMember);
+    res.redirect("/teams");
 
     } catch (e) {
         console.error(e);
