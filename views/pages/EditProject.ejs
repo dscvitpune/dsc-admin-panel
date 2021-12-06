@@ -20,32 +20,30 @@
 
     <link rel="icon" type="image/png" href="images/favicon.ico"/>
     <title>DSC Admin Panel</title></head>
-<body  >
-    
-    <script src="js/navigationbar.js"></script>
-
-  
+<body>
+    <div class="container mt-5">
     <div class="projectform">
            
         <div>
-        <form action="projects/newProject" method="POST" enctype="multipart/form-data">
-        <p class="display-6 titl mb-4"><b>Project Form</b></p>
+        <form action="/projects/edit/<%= project._id %>" method="POST" enctype="multipart/form-data">
+        <div class="form mx-auto">
+    <p class="display-6 titl mb-4"><b>Edit Project</b></p>
         <div class="form mx-auto" id="formm">
            <div class="row">
                <div class="col">
             <div class="row resp">
                 <div class="col projtitle">
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" name="title" class="form-control " required placeholder="eg. Admin Panel">
+                    <input type="text" name="title" value="<%= project.projectTitle %>" class="form-control " required placeholder="eg. Admin Panel">
                 </div>
                 <div class="col domain">
                     <label for="domain" class="form-label">Domain</label>
                    <div class="dropdown" style="position: unset">
                         <select name="domain" class="btn btn-dark domainselect" id="chosedomain" data-bs-toggle="dropdown">
                             <option value="" disabled hidden selected>Choose a domain</option>
-                            <option value="Web Developer">Web Developer</option>
-                            <option value="Android Developer">Android Developer</option>
-                            <option value="Flutter Developer">Flutter Developer</option>
+                            <option <%= project.domain === "Web Developer" ? "selected='selected'" : "selected='false'"%> value="Web Developer">Web Developer</option>
+                            <option <%= project.domain === "Android Developer" ? "selected='selected'" : "selected='false'"%> value="Android Developer">Android Developer</option>
+                            <option <%= project.domain === "Flutter Developer" ? "selected='selected'" : "selected='false'"%> value="Flutter Developer">Flutter Developer</option>
                         </select>
                         <!-- <button class="btn btn-dark dropdown-toggle domainselect" name="domain" id="chosedomain" data-bs-toggle="dropdown" >Domain</button>
                         <ul class="dropdown-menu">
@@ -60,15 +58,15 @@
             </div>
             <div class="mt-3">
                 <label for="description" class="form-label">Description</label><br>
-                <textarea class="txtarea form-control" name="desc" id="" cols="40" rows="4" placeholder="Enter description of the project"></textarea>
+                <textarea class="txtarea form-control" name="desc" id="" cols="40" rows="4" ><%= project.description %></textarea>
                 <div class="row">
                     <div class="col">
                         <label for="githublink" class="form-label mt-3">GitHub</label>
-                        <input type="url" name="github" required class="form-control" placeholder="Repository Link">
+                        <input type="url" name="github" value="<%= project.githubLink%>" required class="form-control" >
                     </div>
                     <div class="col">
                         <label for="videolink" class="form-label mt-3">Video Link</label>
-                        <input type="url" name="video" class="form-control col-md-4" placeholder="Video Link">
+                        <input type="url" name="video" class="form-control col-md-4" value="<%= project.videoLink%>">
                     </div>
                 </div>
             </div>
@@ -86,14 +84,15 @@
         </div>
     </div>
     <div class="row mt-5 d-flex justify-content-center" >
-        <button class="btn btn-dark addproj mb-2" type="submit">Add Project</button>
+        <button class="btn btn-dark addproj mb-2 mx-2" type="submit">Add Project</button>
     </div>
     </div>
+</div>
 </div>
 </form>
 
         </div>
-        <div class="projectstable mt-5">
+        <!-- <div class="projectstable mt-5">
             <div class="tablesp">
             <table class="table table-bordered  table-striped">
                 <thead class="thead table-dark">
@@ -107,34 +106,14 @@
                     <th style="width: 1%;">Controls</th>
                 </tr>
                 </thead>
-                <tbody>
-                    <% allProjects.forEach(function(project, idx) { %>
-                        <tr>
-                            <td><%= idx+1%></td>
-                            <td><%= project.projectTitle%></td>
-                            <td><%= project.domain%></td>
-                            <td><%= project.description%></td>
-                            <td><a><%= project.githubLink%></a></td>
-                            <td><%= project.videoLink%></td>
-                            <td class="tbuttons">
-                                <div class="t-buttons ">
-                                <button class="btn " onClick="handleEdit(`<%= project._id%>`)"><img src="images/pencil.png"></button>
-                                <button class="btn" onClick="handleDelete(`<%= project._id%>`)"> <img src="images/trashbin.png"></button>
-                                </div>
-                            </td>
-
-                        </tr>
-                    <% }); %>
-                </tbody>
+                
             </table>
+        </div> -->
         </div>
-        </div>
-   
+    </div>
+        
        <script src="js/projects.js"></script>
        <script>
-        const handleEdit = async (id) => {
-            window.location.href = `http://localhost:5000/editProject/${id}`
-        } 
         const handleDelete = async (_id) => {
             const id = {id: _id};
             let res = await fetch(`/projects/delete/${_id}`,{

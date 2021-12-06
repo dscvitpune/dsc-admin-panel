@@ -46,6 +46,11 @@ const projects = async  (req, res) => {
   }
 };
 
+const editProject = async (req, res) => {
+  const projectToEdit = await Project.findById(req.params.id)
+  res.render("pages/EditProject", {project: projectToEdit});
+}
+
 module.exports = {
   home,
   teams,
@@ -53,6 +58,7 @@ module.exports = {
   signIn,
   projects,
   editEvent,
-  editTeam
-};
+  editTeam,
+  editProject 
+  };
 

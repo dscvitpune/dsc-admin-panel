@@ -102,13 +102,11 @@ input {
 	width: 23px;
 	height: 23px;
 }
+
 .tbuttons button:nth-child(1) {
-	background-color: rgb(10, 155, 86);
-}
-.tbuttons button:nth-child(2) {
 	background-color: rgb(83, 125, 190);
 }
-.tbuttons button:nth-child(3) {
+.tbuttons button:nth-child(2) {
 	background-color: rgb(229, 70, 53);
 }
 

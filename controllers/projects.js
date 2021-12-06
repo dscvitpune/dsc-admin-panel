@@ -50,22 +50,26 @@ const viewProject = async (req, res) => {
 }
 
 const updateProject = async (req, res) => {
-    const { projectTitle, description, domain, githubLink, videoLink } = req.body;
+    const { title, desc, domain, github, video } = req.body;
+    console.log(req.body);
     try
     {
-        let existingProject = await Project.findOne({ projectTitle });
+        const projectId = req.params.id;
+        let existingProject = projectId?  await Project.findById(projectId) : "";
         if (!existingProject) throw "Project doesn't exist";
-
         let updatedProject = {
-            projectTitle: (projectTitle !== req.body.projectTitle) ? req.body.projectTitle : projectTitle,
-            description,
+            projectTitle: title,
+            description: desc,
             domain,
-            githubLink,
-            videoLink
+            githubLink: github,
+            videoLink: video
         }
 
-        updatedProject = await Project.findOneAndUpdate({ projectTitle }, updatedProject, { new: true });
-        res.status(200).json(updatedProject);
+        // updatedProject = await Project.findByIdAndUpdate(projectId, updatedProject);
+        console.log("updated project: ");
+        console.log(updatedProject);
+        res.redirect("/project");
+        // res.status(200).json(updatedProject);
 
     } catch (e)
     {
