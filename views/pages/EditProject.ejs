@@ -23,13 +23,21 @@
 <body>
     <div class="container mt-5">
     <div class="projectform">
+        <form class="d-flex flex-column">
+            <h2 class="align-self-lg-center">Edit Project</h2>
+            <div display="d-flex flex-column">
+                <label>Title</label>
+                <input name="projectTitle" value="<%= project.projectTitle%>">
+            </div>
+
+        </form>
            
         <div>
         <form action="/projects/edit/<%= project._id %>" method="POST" enctype="multipart/form-data">
         <div class="form mx-auto">
-    <p class="display-6 titl mb-4"><b>Edit Project</b></p>
-        <div class="form mx-auto" id="formm">
-           <div class="row">
+            <p class="display-6 titl mb-4"><b>Edit Project</b></p>
+            <div class="form mx-auto" id="formm">
+        <div class="row">
                <div class="col">
             <div class="row resp">
                 <div class="col projtitle">
@@ -40,19 +48,19 @@
                     <label for="domain" class="form-label">Domain</label>
                    <div class="dropdown" style="position: unset">
                         <select name="domain" class="btn btn-dark domainselect" id="chosedomain" data-bs-toggle="dropdown">
-                            <option value="" disabled hidden selected>Choose a domain</option>
-                            <option <%= project.domain === "Web Developer" ? "selected='selected'" : "selected='false'"%> value="Web Developer">Web Developer</option>
-                            <option <%= project.domain === "Android Developer" ? "selected='selected'" : "selected='false'"%> value="Android Developer">Android Developer</option>
-                            <option <%= project.domain === "Flutter Developer" ? "selected='selected'" : "selected='false'"%> value="Flutter Developer">Flutter Developer</option>
+                            <option value="" disabled hidden selected><%= project.domain%></option>
+                            <option value="Web">Web</option>
+                            <option value="Android">Android</option>
+                            <option value="Flutter">Flutter</option>
                         </select>
-                        <!-- <button class="btn btn-dark dropdown-toggle domainselect" name="domain" id="chosedomain" data-bs-toggle="dropdown" >Domain</button>
-                        <ul class="dropdown-menu">
+                        <!-- <button class="btn btn-dark dropdown-toggle domainselect" name="domain" id="chosedomain" data-bs-toggle="dropdown" >Domain</button> -->
+                        <!-- <ul class="dropdown-menu">
                             <li class="dropdown-item" id="item1" >Web Development</li>
                             <li class="dropdown-item" id="item2" >Android Development</li>
                             <li class="dropdown-item" id="item3" >Flutter Development</li>
                         </ul> -->
                         <!-- refer projects.js for action on selecting the domain -->
-                   </div>
+                    </div>
                    
                 </div>
             </div>
@@ -72,26 +80,26 @@
             </div>
         </div>
         <div class="col-4 uploaddiv">
-            <!-- <div class="demoimage h-100 text-center d-table" id="demoimg" onclick="imgupload();"> -->
+            <div class="demoimage h-100 text-center d-table" id="demoimg" onclick="imgupload();">
                 <!-- <div class="uploadimg align-middle d-table-cell" >
                 <img src="images/upload.png" width="60px" height="60px" alt="" >
                 <p>Upload</p>
                 <p class="txtmuted" style="font-size: 0.8rem;">Drag & Drop or Click to choose</p> -->
             <input name="image" type="file"/>
-            <!-- <p id="chosenfile" class="text-muted" >No file Chosen</p> -->
-            <!-- </div> -->
+            <p id="chosenfile" class="text-muted" >No file Chosen</p>
+            </div> -->
             </div>
         </div>
     </div>
     <div class="row mt-5 d-flex justify-content-center" >
-        <button class="btn btn-dark addproj mb-2 mx-2" type="submit">Add Project</button>
+        <button class="btn btn-dark addproj mb-2 mx-2" type="submit">Edit Project</button>
     </div>
     </div>
 </div>
 </div>
 </form>
 
-        </div>
+        <!-- </div>  -->
         <!-- <div class="projectstable mt-5">
             <div class="tablesp">
             <table class="table table-bordered  table-striped">
@@ -128,3 +136,7 @@
        </script>
 </body>
 </html>
+
+                            <!-- <option <%= project.domain === "Web Developer" ? "selected=selected" : "selected=false"%> value="Web Developer">Web</option>
+                            <option <%= project.domain === "Android Developer" ? "selected=selected" : "selected=false"%> value="Android Developer">Android</option>
+                            <option <%= project.domain === "Flutter Developer" ? "selected=selected" : "selected=false"%> value="Flutter Developer">Flutter</option> -->

@@ -65,7 +65,7 @@ const updateProject = async (req, res) => {
             videoLink: video
         }
 
-        // updatedProject = await Project.findByIdAndUpdate(projectId, updatedProject);
+        updatedProject = await Project.findByIdAndUpdate(projectId, updatedProject, {new: true});
         console.log("updated project: ");
         console.log(updatedProject);
         res.redirect("/project");
