@@ -36,6 +36,9 @@ app.use(
     secret: "secret",
     resave: true,
     saveUninitialized: true,
+    cookie: {
+      _expires: 6000000
+    }
   })
 );
 

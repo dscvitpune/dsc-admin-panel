@@ -10,6 +10,7 @@ module.exports = {
         }
     },
     forwardAuth: (req, res, next) => {
+        console.log(req);
         if (req.isAuthenticated())
         {
             return res.redirect("/");

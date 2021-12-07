@@ -7,10 +7,20 @@ const Member = model("members");
 const home = (req, res) => {
   res.render("pages/index");
 };
+
+//Event view controllers
 const editEvent = async (req, res) => {
   const response = await Event.findById(req.params.id)
   res.render("pages/EditEvent",{event:response});
 };
+const events = async (req, res) => {
+  const allEvents = await Event.find({})
+  res.render("pages/events",{
+          Events:allEvents
+  });
+};
+
+//Team view controllers
 const editTeam = async (req, res) => {
   const response = await Member.findById(req.params.id)
   res.render("pages/EditTeams",{member:response});
@@ -23,21 +33,16 @@ const teams = async (req, res) => {
     res.status(300).json({ message: e.toString() });
   }
 };
-const events = async (req, res) => {
-  const allEvents = await Event.find({})
-  res.render("pages/events",{
-          Events:allEvents
-  });
-};
+
+//Auth view controllers
 const signIn = (req, res) => {
   res.render("pages/signin");
 };
+
+//Project view controllers
 const projects = async  (req, res) => {
   try {
     const allProjects = await Project.find({});
-    allProjects.forEach((project) => {
-      console.log(project.projectTitle);
-    })
     res.render("pages/projects", {
       allProjects: allProjects
     });
@@ -50,6 +55,7 @@ const editProject = async (req, res) => {
   const projectToEdit = await Project.findById(req.params.id)
   res.render("pages/EditProject", {project: projectToEdit});
 }
+
 
 module.exports = {
   home,

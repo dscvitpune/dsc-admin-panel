@@ -44,7 +44,6 @@ const signUp = async (req, res) => {
 }
 
 const logIn = (req, res, next) => {
-    debugger;
     passport.authenticate('local', {
         successRedirect: '/',
         failureRedirect: '/signin',
