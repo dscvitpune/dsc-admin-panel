@@ -146,9 +146,11 @@
                 <div class="col-md-5" style="text-align: center">
                   <label>Current Image:</label>
                   <div class="h-75 w-auto bg-light">
-                    <img 
-                      class="image-fluid"
-                      src="data:image/<%=event.image.contentType%>;base64,<%=event.image.toString('base64')%>"
+                    <img
+                    class="img"
+                    height="300px"
+                    src="data:image/<%=event.image.contentType%>;base64,<%=event.image.data.toString('base64')%>"
+                    alt="<%=event.title%>"
                   />
                   </div>
                   <!-- <div class="photo-box">
@@ -158,7 +160,7 @@
                     <header>Drag & Drop to Upload File</header>
                     <span>OR</span>
                     <button type="button">Browse File</button> -->
-                    <input type="file" id="removeValue" name="image"  />
+                    <input type="file" id="removeValue" name="image" value="<%=event.image%>"  />
                     <script src="/js/dragdrop.js"></script>
                   </div>
                 </div>
