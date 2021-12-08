@@ -19,9 +19,9 @@ const newEvent = async (req, res) => {
     if (existingEvent) throw "event already exists";
 
     const image = {
-        data: req.file.buffer,
-        contentType: req.file.mimetype
-    }
+      data: req.file.buffer,
+      contentType: req.file.mimetype,
+    };
     let newEvent = await new Event({
       title,
       venue,
@@ -78,13 +78,18 @@ const updateEvent = async (req, res) => {
     slots,
   } = req.body;
   try {
-    if(req.file) {
-      const image = {
+    let getImageData = await Event.findById(id);
+    let image = {
+      data: getImageData.image.data,
+      contentType: getImageData.image.contentType,
+    };
+    if (req.file) {
+      image = {
         data: req.file.buffer,
-        contentType: req.file.mimetype
+        contentType: req.file.mimetype,
+      };
     }
-    }
-    
+
     let updateEvent = {
       title,
       venue,
@@ -95,11 +100,12 @@ const updateEvent = async (req, res) => {
       registrationLink,
       updatedAt: new Date(),
       slots,
+      image,
     };
-    let response = await Event.findByIdAndUpdate(id,updateEvent);
+    let response = await Event.findByIdAndUpdate(id, updateEvent);
     res.redirect("/event");
 
-    // res.status(200).json({message:"Record Updated",response:response})
+    res.status(200).json({message:"Record Updated",response:response})
   } catch (error) {
     console.error(error);
     res.status(300).json({ message: "something went wrong" });
@@ -132,4 +138,3 @@ exports.getEvent = getEvent;
 exports.newEvent = newEvent;
 exports.deleteEvent = deleteEvent;
 exports.updateEvent = updateEvent;
-

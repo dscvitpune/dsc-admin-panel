@@ -230,11 +230,11 @@
                   </div>
                   <div class="col-md-5" style="text-align: center">
                     <img
-                      class="img"
-                      height="300px"
-                      src="data:image/<%=event.image.contentType%>;base64,<%=event.image.toString('base64')%>"
-                      alt="<%=event.title%>"
-                    />
+                    class="img"
+                    height="300px"
+                    src="data:image/<%=event.image.contentType%>;base64,<%=event.image.data.toString('base64')%>"
+                    alt="<%=event.title%>"
+                  />
                   </div>
                 </div>
               </div>
@@ -270,7 +270,7 @@
     </script>
     <script>
       const getEdit=(id)=>{
-        window.location.href = `http://localhost:8000/editEvent/${id}`;
+        window.location.href = `http://localhost:5000/editEvent/${id}`;
       }
     </script>
   </body>
