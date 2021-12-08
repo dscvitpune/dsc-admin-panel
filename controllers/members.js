@@ -150,15 +150,19 @@ const displayOne = async (req, res) => {
     }
 }
 const updateMember = async (req, res) => {
-    const {id, firstName, lastName, linkedInProfile, role, specialRole} = req.body;
+    const {firstName, lastName, linkedInProfile, githubProfile, mobileNumber, role, email} = req.body;
+    const memberId = req.params.id;
     console.log(req.body)
     try {
-        let updatedMember = await Member.findByIdAndUpdate(id,{
+        let updatedMember = await Member.findByIdAndUpdate(memberId,{
             firstName,
             lastName,
             linkedInProfile,
+            githubProfile,
             role,
-            specialRole: (specialRole)? specialRole : null
+            email,
+            mobileNumber,
+            image: req.file.buffer
         }, {new: true});
             res.redirect("/teams");
 

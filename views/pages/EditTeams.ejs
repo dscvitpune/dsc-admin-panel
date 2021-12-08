@@ -14,11 +14,10 @@
              
                    
 
-              <form method="POST", action="/team/updateMember">
-                    <h1 class="text-center">Edit Team Member Details</h1>
-                    <input type="text" name="id" value="<%= member._id %>">
-                           <p class="text-center">Member ID : <%= member._id %></p> 
-                    <div class="form mx-auto">
+              <form method="POST", action="/team/updateMember/<%= member._id %>" enctype="multipart/form-data">
+                  <h1 class="text-center">Edit Team Member Details</h1>
+                  <p class="text-center">Member ID : <%= member._id %></p> 
+                  <div class="form mx-auto">
                           <div class="row">
                                 <div class="col">
                                       <div class="row resp">
@@ -121,9 +120,18 @@
                                 </div>
 
                                 <div class="col-4 uploaddiv">
+                                    <p>Current Image: </p>
+
+                                    <div class="h-100 w-auto">
+                                          <img 
+                                                src="data:image/<%=member.image.contentType%>;base64,<%=member.image.toString('base64')%>" 
+                                                alt="Member picture"
+                                                class="img-fluid"
+                                          >
+                                    </div>
                                       
+                                    <p id="chosenfile" class="text-muted">Upload new Image</p>
                                     <input  id="imgupload" type="file" name="image"/>
-                                    <p id="chosenfile" class="text-muted">No file Chosen</p>
                                       <!-- <div class="demoimage h-100 text-center d-table" id="demoimg"
                                             onclick="imgupload();">
                                             <div class="uploadimg align-middle d-table-cell">

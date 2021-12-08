@@ -148,8 +148,8 @@
                     <header>Drag & Drop to Upload File</header>
                     <span>OR</span>
                     <button type="button">Browse File</button> -->
-                    <input type="file" id="removeValue" name="image"  />
-                    <script src="/js/dragdrop.js"></script>
+                    <input name="image" type="file"  />
+                    <!-- <script src="/js/dragdrop.js"></script> -->
                   </div>
                 </div>
               </div>
@@ -173,72 +173,75 @@
       <div class="events">
         <h1>EVENTS</h1>
         <ul class="ml-5">
-          <% Events.forEach(event=>{ %>
-          <li class="card">
-            <div class="container py-3">
-              <div class="row">
-                <div class="col-md-7 px-3">
-                  <div class="card-block px-6">
-                    <h4 class="card-title"><%= event.title %></h4>
-                    <div class="row">
-                      <div class="col-sm-6 col-md-6 venue">
-                        <p><%=event.venue%></p>
-                      </div>
-                      <div class="col-sm-6 col-md-6 status">
-                        <p><%=event.status%></p>
-                      </div>
-                    </div>
+          <% if(Events) { %>
 
-                    <p class="card-text"><%=event.description%></p>
-                    <div class="d-flex flex-row">
-                      <i class="fa fa-calendar" style="font-size: 25px"></i>
-                      <p style="padding-left: 7px; font-size: large">
-                        <%=event.date%>
-                      </p>
-                    </div>
-                    <div class="d-flex flex-row">
-                      <a target="_blank" href="<%= event.registrationLink%>">
+            <% Events.forEach(event=>{ %>
+            <li class="card">
+              <div class="container py-3">
+                <div class="row">
+                  <div class="col-md-7 px-3">
+                    <div class="card-block px-6">
+                      <h4 class="card-title"><%= event.title %></h4>
+                      <div class="row">
+                        <div class="col-sm-6 col-md-6 venue">
+                          <p><%=event.venue%></p>
+                        </div>
+                        <div class="col-sm-6 col-md-6 status">
+                          <p><%=event.status%></p>
+                        </div>
+                      </div>
+
+                      <p class="card-text"><%=event.description%></p>
+                      <div class="d-flex flex-row">
+                        <i class="fa fa-calendar" style="font-size: 25px"></i>
+                        <p style="padding-left: 7px; font-size: large">
+                          <%=event.date%>
+                        </p>
+                      </div>
+                      <div class="d-flex flex-row">
+                        <a target="_blank" href="<%= event.registrationLink%>">
+                          <button
+                            type="button"
+                            class="btn btn-primary"
+                            style="margin: 5px"
+                          >
+                            Register
+                          </button>
+                        </a>
+                        <button
+                          type="submit"
+                          class="btn btn-danger"
+                          style="margin: 5px"
+                          onclick="deleteEvent(`<%= event._id %>`)"
+                        >
+                          Delete
+                        </button>
+
                         <button
                           type="button"
-                          class="btn btn-primary"
+                          class="btn btn-info"
                           style="margin: 5px"
+                          onclick="getEdit('<%=event._id%>')"
                         >
-                          Register
+                          Edit
                         </button>
-                      </a>
-                      <button
-                        type="submit"
-                        class="btn btn-danger"
-                        style="margin: 5px"
-                        onclick="deleteEvent(`<%= event._id %>`)"
-                      >
-                        Delete
-                      </button>
-
-                      <button
-                        type="button"
-                        class="btn btn-info"
-                        style="margin: 5px"
-                        onclick="getEdit('<%=event._id%>')"
-                      >
-                        Edit
-                      </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-5" style="text-align: center">
-                  <img
-                    class="img"
-                    height="300px"
-                    src="data:image/<%=event.image.contentType%>;base64,<%=event.image.data.toString('base64')%>"
-                    alt="<%=event.title%>"
-                  />
+                  <div class="col-md-5" style="text-align: center">
+                    <img
+                      class="img"
+                      height="300px"
+                      src="data:image/<%=event.image.contentType%>;base64,<%=event.image.toString('base64')%>"
+                      alt="<%=event.title%>"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          </li>
-          <br />
-          <% }) %>
+            </li>
+            <br />
+            <% }) %>
+          <% } %>
         </ul>
       </div>
     </div>
@@ -267,7 +270,7 @@
     </script>
     <script>
       const getEdit=(id)=>{
-        window.location.href = `http://localhost:5000/editEvent/${id}`;
+        window.location.href = `http://localhost:8000/editEvent/${id}`;
       }
     </script>
   </body>
