@@ -62,12 +62,11 @@ const updateProject = async (req, res) => {
             description: desc,
             domain,
             githubLink: github,
-            videoLink: video
+            videoLink: video,
+            image: req.file.buffer
         }
 
         updatedProject = await Project.findByIdAndUpdate(projectId, updatedProject, {new: true});
-        console.log("updated project: ");
-        console.log(updatedProject);
         res.redirect("/project");
         // res.status(200).json(updatedProject);
 
