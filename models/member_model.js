@@ -20,7 +20,6 @@ const memberSchema = new Schema({
     role: {type: String, required: true},
     mobileNumber : {type: Number, required: false},
     image: {
-        type: Buffer,
         data: Buffer,
         contentType: String
     }

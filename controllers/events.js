@@ -39,7 +39,6 @@ const newEvent = async (req, res) => {
       slots,
       image,
     }).save();
-    console.log(newEvent);
     // res.status(200).json({ newEvent });
     res.redirect("/event");
   } catch (e) {

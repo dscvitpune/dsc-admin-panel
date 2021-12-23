@@ -84,7 +84,7 @@
                 <div class="h-100 w-auto bg-light">
                     <img 
                         class="img-fluid"
-                        src="data:image/<%=project.image.contentType%>;base64,<%=project.image.toString('base64')%>"
+                        src="data:image/<%=project.image.contentType%>;base64,<%=project.image.data.toString('base64')%>"
                         alt="<%= project.title %>"
                     />
                 </div>

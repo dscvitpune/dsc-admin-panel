@@ -4,7 +4,10 @@ const Project = mongoose.model("projects");
 
 const newProject = async (req, res) => {
     const { title, domain, desc, github, video } = req.body;
-    
+    image = {
+        data: req.file.buffer,
+        contentType: req.file.mimetype,
+      };
     try
     {    
         let newProject = await new Project({
@@ -13,6 +16,7 @@ const newProject = async (req, res) => {
             description: desc,
             githubLink: github,
             videoLink: video,
+            image:image
         }).save();
 
         res.redirect('/project')
@@ -51,10 +55,19 @@ const viewProject = async (req, res) => {
 
 const updateProject = async (req, res) => {
     const { title, desc, domain, github, video } = req.body;
-    console.log(req.body);
+    const projectId = req.params.id;
+    let getImageData = await Project.findById(projectId);
+    let image = {
+      data: getImageData.image.data,
+      contentType: getImageData.image.contentType,
+    };
+    if (req.file) {
+        image = {
+          data: req.file.buffer,
+          contentType: req.file.mimetype,
+        }};
     try
     {
-        const projectId = req.params.id;
         let existingProject = projectId?  await Project.findById(projectId) : "";
         if (!existingProject) throw "Project doesn't exist";
         let updatedProject = {
@@ -63,7 +76,7 @@ const updateProject = async (req, res) => {
             domain,
             githubLink: github,
             videoLink: video,
-            image: req.file.buffer
+            image: image
         }
 
         updatedProject = await Project.findByIdAndUpdate(projectId, updatedProject, {new: true});
