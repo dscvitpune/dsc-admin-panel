@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include("../partials/head") %>
-    <link rel="stylesheet" href="/css/events.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/f79e5c4560.js" crossorigin="anonymous"></script>
+    <!-- <%- include("../partials/head") %> -->
+    <link rel="stylesheet" href="../public/css/events.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="../public/css/navigationbar.css">
   </head>
   <body>
     <!--navigation bar-->
-    <script src="/js/navigationbar.js"></script>
+    <script src="../public/js/navigationbar.js"></script>
     <div class="event">
       <!--start Event form-->
       <div class="events1">
-        <h1 class="mb-4 mt-3 text-dark pgtitle">Edit Event Form</h1>
+        <h1 style="align-self: center">Edit EVENT FORM</h1>
         <form
           action="/events/newEvent"
           method="post"
           enctype="multipart/form-data"
         >
           <div class="main-container">
-            <div class="container">
+            <div class="container py-3">
               <div class="row">
                 <div class="col-md-7 px-3">
                   <div class="row">
@@ -36,11 +38,10 @@
                       <input
                         type="text"
                         value=""
-                        class="form-control bg-dark text-light"
+                        class="form-control"
                         id="name"
+                        style="background-color: #d7dbdd"
                         name="title"
-                        required
-                        placeholder="eg. ML Fest"
                       />
                     </div>
                     <div class="form-group col-xs-8 col-md-6">
@@ -55,6 +56,7 @@
                         value=""
                         class="form-control"
                         id="venue"
+                        style="background-color: #d7dbdd"
                         name="venue"
                       />
                     </div>
@@ -67,17 +69,15 @@
                         style="float: left"
                         >Description</label
                       >
-                      <textarea
+                      <input
                         type="text"
                         value=""
-                        class="form-control "
+                        class="form-control"
                         id="desctiption"
-                        style="height: 60px"
+                        style="height: 60px; background-color: #d7dbdd"
                         id="name"
                         name="description"
-
-                        placeholder="Brief the outlines of the event."
-                      ></textarea>
+                      />
                     </div>
                   </div>
                   <div class="row">
@@ -91,8 +91,9 @@
                       <input
                         type="date"
                         value=""
-                        class="form-control "
+                        class="form-control"
                         id="date"
+                        style="background-color: #d7dbdd"
                         name="date"
                       />
                     </div>
@@ -106,10 +107,10 @@
                       <input
                         type="number"
                         value=""
-                        class="form-control "
+                        class="form-control"
                         id="duration"
+                        style="background-color: #d7dbdd"
                         name="duration"
-                      
                       />
                     </div>
                   </div>
@@ -126,6 +127,7 @@
                         value=""
                         class="form-control"
                         id="registration"
+                        style="background-color: #d7dbdd"
                         name="registrationLink"
                       />
                     </div>
@@ -146,27 +148,29 @@
                   <script src="/js/dynamicfields.js"></script>
                 </div>
                 <div class="col-md-5" style="text-align: center">
-                  <input name="image" hidden id="eventimg" type="file"  />
-                  <div class="photo-box" >
-                    <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                    <p>Drag & Drop to Upload Image</p>
-                    <p>Or Click to Browse</p>
-                    <p id="chosenimg"></p>
-                    
+                  <div class="photo-box">
+                    <div class="icon">
+                      <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <header>Drag & Drop to Upload File</header>
+                    <span>OR</span>
+                    <button type="button">Browse File</button>
+                    <input name="image" type="file"  />
+                    <script src="../public/js/dragdrop.js"></script>
                   </div>
-                
                 </div>
               </div>
             </div>
             <div
               class="row justify-content-center px-3"
-              style="margin-top: 0px; margin-bottom: 20px"
+              style="margin-top: 20px; margin-bottom: 10px"
             >
               <button
                 type="submit"
-                class="btn btn-dark btn1 submitbtn"
+                class="btn btn-dark btn1"
+                style="border-radius: 20px; width: 110px"
               >
-                Add Event
+                ADD EVENT
               </button>
             </div>
           </div>
@@ -174,26 +178,27 @@
       </div>
 
       <div class="events">
-        <h1 class="pgtitle">Events</h1>
+        <h1>EVENTS</h1>
         <ul class="ml-5">
-          <% if(Events) { %>
+          <!-- <% if(Events) { %> -->
 
-            <% Events.forEach(event=>{ %>
+            <!-- <% Events.forEach(event=>{ %> -->
             <li class="card">
               <div class="container py-3">
                 <div class="row">
-                  <div class="col-md-7 px-0">
-                    <div class="card-block px-6 ">
-                      <h4 class="card-title evnttitle text-light"><%= event.title %></h4>
+                  <div class="col-md-7 px-3">
+                    <div class="card-block px-6">
+                      <h4 class="card-title"><%= event.title %></h4>
                       <div class="row">
                         <div class="col-sm-6 col-md-6 venue">
                           <p><%=event.venue%></p>
                         </div>
                         <div class="col-sm-6 col-md-6 status">
-                          <p class="text-light bg-dark"><%=event.status%></p>
+                          <p><%=event.status%></p>
                         </div>
                       </div>
-                      <p class="card-text" style="padding-left: 7px;"><%=event.description%></p>
+
+                      <p class="card-text"><%=event.description%></p>
                       <div class="d-flex flex-row">
                         <i class="fa fa-calendar" style="font-size: 25px"></i>
                         <p style="padding-left: 7px; font-size: large">
@@ -233,6 +238,7 @@
                   <div class="col-md-5" style="text-align: center">
                     <img
                     class="img"
+                    height="300px"
                     src="data:image/<%=event.image.contentType%>;base64,<%=event.image.data.toString('base64')%>"
                     alt="<%=event.title%>"
                   />
@@ -241,12 +247,15 @@
               </div>
             </li>
             <br />
-            <% }) %>
-          <% } %>
+            <!-- <% }) %> -->
+          <!-- <% } %> -->
         </ul>
       </div>
     </div>
-    <%- include("../partials/scripts") %>
+    <!-- <%- include("../partials/scripts") %> -->
+
+
+
     <!-- <script>
       window.addEventListener("load", (event) => {
         document.getElementById("removeValue").style.color = "transparent";
@@ -274,14 +283,5 @@
         window.location.href = `http://localhost:5000/editEvent/${id}`;
       }
     </script>
-   <script>
-     let titles=document.querySelectorAll(".evnttitle")
-     let clrs=["#e94334","#5372be","#f8bb15","#0a9c57"],clrcnt=0;
-     titles.forEach((ttl)=>{
-       ttl.style.backgroundColor=clrs[clrcnt%4]
-       clrcnt++
-     })
-   </script>
   </body>
-  <script src="/js/dragdrop.js"></script>
 </html>

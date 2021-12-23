@@ -5,7 +5,7 @@ const upload = require('../middlewares/upload');
 
 
 module.exports = (app) => {
-    app.get('/projects', getProjects);
+    app.get('/projects', upload.single("image"),getProjects);
     app.get('/projects/:id', viewProject);
     app.post('/projects/newProject',upload.single('image'), newProject);
     app.post('/projects/edit/:id', upload.single('image'), updateProject);

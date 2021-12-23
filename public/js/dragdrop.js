@@ -1,10 +1,9 @@
 const dropArea = document.querySelector(".photo-box"),
 dragText = dropArea.querySelector("header"),
-button = dropArea.querySelector("button"),
-input = dropArea.querySelector("input");
+// button = dropArea.querySelector("button"),
+input = document.querySelector("#eventimg");
 let file; 
-
-button.onclick = ()=>{
+dropArea.onclick = ()=>{
   input.click(); 
 }
 
@@ -32,7 +31,9 @@ dropArea.addEventListener("dragleave", ()=>{
 dropArea.addEventListener("drop", (event)=>{
   event.preventDefault(); 
   file = event.dataTransfer.files[0];
+  document.querySelector("#eventimg").files=event.dataTransfer.files
   showFile(); 
+  
 });
 
 function showFile(){

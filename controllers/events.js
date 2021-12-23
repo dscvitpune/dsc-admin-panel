@@ -16,7 +16,12 @@ const newEvent = async (req, res) => {
 
   try {
     const existingEvent = await Event.findOne({ title });
-    if (existingEvent) throw "event already exists";
+    var message="something went wrong"
+    if (existingEvent) {
+      message= "event already exists";
+      throw message
+    }
+    
 
     const image = {
       data: req.file.buffer,
@@ -39,7 +44,7 @@ const newEvent = async (req, res) => {
     res.redirect("/event");
   } catch (e) {
     console.error(e);
-    res.status(300).json({ message: "something went wrong" });
+    res.status(300).json({ message: message });
   }
 };
 

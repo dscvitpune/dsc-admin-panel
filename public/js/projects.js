@@ -1,15 +1,20 @@
+let imginput =document.getElementById('imgupload')
 /**setting the left margin of main div to right position of nav-bar since nav-bar's position is fixed */
     console.log(document.getElementById('navigation').getBoundingClientRect().right)
     document.querySelector('.projectform').style.marginLeft=document.getElementById('navigation').getBoundingClientRect().right+'px';
-    document.querySelector('.projectstable').style.marginLeft=document.getElementById('navigation').getBoundingClientRect().right+'px';
     // document.querySelector('.table').style.marginLeft=document.getElementById('formm').getBoundingClientRect().left+'px';
     const imgupload=()=>{
-   document.getElementById('imgupload').click();
+        imginput.click();
     }
-    document.getElementById('imgupload').addEventListener('change',(e)=>{
+    imginput.addEventListener('change',(e)=>{
         /** resolving uploaded image's name from the entire path*/
+        /**do any one of the following */
        document.getElementById('chosenfile').innerHTML=(e.target.value).split('\\').slice(-1)[0];
+       let img=e.target.files;
+       imginput.files=img
+       displayimg(img[0])
     })
+
    var demoimg= document.getElementById('demoimg');
         /** represent when dragging is active 
          * disabling the open-in-new-tab and other default events
@@ -33,23 +38,23 @@
         var imgtit=e.dataTransfer.files[0].name;
         /**checking for image extensions */
         if(imgtit.includes('.jpg') || imgtit.includes('.png') || imgtit.includes('.jpeg') || imgtit.includes('.bmp')){
-            /**giving the file to the hidden input */
-            document.getElementById('imgupload').files=e.dataTransfer.files;
-            /**you can access the file in backend using above  */
-            document.getElementById('chosenfile').innerHTML=e.dataTransfer.files[0].name;
+            /**giving the file to the hidden input to send the file to backend*/
+            imginput.files=e.dataTransfer.files;
+            document.getElementById('chosenfile').innerHTML=imginput.files[0].name
+            displayimg(imginput.files[0])
+
         }
         else{
             document.getElementById('chosenfile').innerHTML="Please choose a valid Image";
             document.getElementById('chosenfile').className="text-danger"
         }
     }
-var chosendomain;
-        /**listening for click event of multiple options */
-    ['item1','item2','item3'].forEach(item=>{
-        document.getElementById(item).addEventListener('click',(e)=>{
-        chosendomain=e.target.value;
-        // console.log(e.target.value);
-        /**displaying the selected option */
-        document.getElementById('chosedomain').innerHTML=chosendomain;
-        })
-    })
+    const displayimg=(f)=>{
+        let fileReader = new FileReader(); 
+        fileReader.onload = ()=>{
+          let URI = fileReader.result; 
+          let imgelement = `<img class="displayimg" src="${URI}" alt="image">`; 
+          demoimg.querySelector(".uploadimg").innerHTML = imgelement; 
+        }
+        fileReader.readAsDataURL(f);
+    }

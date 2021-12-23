@@ -4,6 +4,7 @@ const Project = mongoose.model("projects");
 
 const newProject = async (req, res) => {
     const { title, domain, desc, github, video } = req.body;
+    
     try
     {    
         let newProject = await new Project({
@@ -12,7 +13,6 @@ const newProject = async (req, res) => {
             description: desc,
             githubLink: github,
             videoLink: video,
-            image: req.file.buffer
         }).save();
 
         res.redirect('/project')
