@@ -23,7 +23,7 @@ document.write(
             <div> <a href="/project" >Projects</a></div>
             <div> <a href="/teams" >Teams</a></div>
             <div>   <a href="http://certificate-generator-dsc.herokuapp.com/" >Certificates</a></div>
-            
+            <div><a href="">Logout</a></div>
         </div>
         <div class="shortcuts" id="tools">
         
@@ -32,6 +32,7 @@ document.write(
             <div><a href="/project"><img src="/images/window.png" alt="" ></a></div>
             <div><a href="/teams"><img src="/images/teams.png" alt="" ></a></div>
             <div><a href="http://certificate-generator-dsc.herokuapp.com/" ><img src="/images/certificate6.png" alt="" ></a></div>
+            <div><a href=""><img src="/images/user.png" alt="" ></a></div>
             
         </div>
     </div>

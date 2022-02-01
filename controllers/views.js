@@ -40,6 +40,11 @@ const signIn = (req, res) => {
 };
 
 //Project view controllers
+
+const editProject = async (req, res) => {
+  const projectToEdit = await Project.findById(req.params.id)
+  res.render("pages/EditProject", {project: projectToEdit});
+}
 const projects = async  (req, res) => {
   try {
     const allProjects = await Project.find({});
@@ -51,10 +56,6 @@ const projects = async  (req, res) => {
   }
 };
 
-const editProject = async (req, res) => {
-  const projectToEdit = await Project.findById(req.params.id)
-  res.render("pages/EditProject", {project: projectToEdit});
-}
 
 
 module.exports = {

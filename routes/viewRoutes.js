@@ -4,10 +4,10 @@ module.exports = (app) => {
   app.get("/",restrictUnauth, home);
   app.get("/teams",restrictUnauth, teams);
   app.get("/event",restrictUnauth,events);
-  app.get("/signin", signIn);
-  app.get("/project",restrictUnauth, projects);
-  app.get("/editEvent/:id",restrictUnauth, editEvent);
-  app.get("/editMember/:id",restrictUnauth, editTeam);
-  app.get("/editProject/:id",restrictUnauth, editProject);
+  app.get("/signin",restrictUnauth, signIn);
+  app.get("/project", restrictUnauth,projects);
+  app.get("/editEvent/:id", editEvent);
+  app.get("/editMember/:id", editTeam); 
+  app.get("/editProject/:id", editProject);
 };
 

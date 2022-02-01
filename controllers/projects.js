@@ -63,9 +63,12 @@ const updateProject = async (req, res) => {
             domain,
             githubLink: github,
             videoLink: video,
-            image: req.file.buffer
         }
-
+        //to check if admin really has updated the project image or not, if did then only update the document
+        if(req.file){
+            updatedProject.image=req.file.buffer
+        }
+                
         updatedProject = await Project.findByIdAndUpdate(projectId, updatedProject, {new: true});
         res.redirect("/project");
         // res.status(200).json(updatedProject);

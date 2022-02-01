@@ -34,8 +34,10 @@ border-radius: 20px;
 .evnttitle{
 	padding-left: 0.5rem;
 	border-radius: 0.5rem;
-	font-size: 1.7rem;
+	font-size: 2.5rem;
 	padding-bottom: 4px;
+	font-family: 'Oswald', sans-serif;
+	color:#fff;
 }
 /*start of design of drag drop area*/
 .photo-box {
@@ -55,9 +57,39 @@ border-radius: 20px;
 	background-color: #D7DBDD;
 		font-family: "Poppins", sans-serif;
 }
-
+.control-label{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+}
 .img-fluid{
 height: 350px;
+}
+.row{
+	display: flex;
+}
+.firstrow{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+.secrow{
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 1rem;
+	display: block;
+}
+.editcont{
+	padding: 2rem;
+}
+.plo{
+	padding-left: 0px;
+}
+.plro{
+	padding-right: 0px;
+	padding-left: 0px;
+}
+.editbox{
+	margin: 0px;
+	height: 100%;
 }
 .img{
 	max-width: 100%;
@@ -125,10 +157,11 @@ transform: scale(1.1)
 }
 
 .venue {
+
 	text-align: left;
 }
 .venue p {
-	font-size: 22px;
+	font-size: 20px;
 	font-weight: 400;
 	margin-bottom: 0rem;
 	padding-left: 7px;

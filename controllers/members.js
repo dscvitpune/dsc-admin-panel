@@ -154,17 +154,33 @@ const updateMember = async (req, res) => {
     const memberId = req.params.id;
     console.log(req.body)
     try {
-        let updatedMember = await Member.findByIdAndUpdate(memberId,{
-            firstName,
-            lastName,
-            linkedInProfile,
-            githubProfile,
-            role,
-            email,
-            mobileNumber,
-            image: req.file.buffer
-        }, {new: true});
-            res.redirect("/teams");
+        if(req.file){
+            let updatedMember = await Member.findByIdAndUpdate(memberId,{
+                firstName,
+                lastName,
+                linkedInProfile,
+                githubProfile,
+                role,
+                email,
+                mobileNumber,
+                image: req.file.buffer
+            }, {new: true});
+               
+        }
+        else{
+            let updatedMember = await Member.findByIdAndUpdate(memberId,{
+                firstName,
+                lastName,
+                linkedInProfile,
+                githubProfile,
+                role,
+                email,
+                mobileNumber,
+            }, {new: true});
+                
+        }
+        res.redirect("/teams");
+        
 
         // res.status(200).json({updatedMember});
     } catch (e) {
