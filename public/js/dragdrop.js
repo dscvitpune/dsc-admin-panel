@@ -2,6 +2,7 @@ const dropArea = document.querySelector(".photo-box"),
 dragText = dropArea.querySelector("header"),
 // button = dropArea.querySelector("button"),
 input = document.querySelector("#eventimg");
+let flag=false
 let file; 
 dropArea.onclick = ()=>{
   input.click(); 
@@ -9,6 +10,8 @@ dropArea.onclick = ()=>{
 
 input.addEventListener("change", function(){
   file = this.files[0];
+  flag=true
+  enable()
   dropArea.classList.add("active");
   showFile(); 
 });
@@ -31,6 +34,8 @@ dropArea.addEventListener("dragleave", ()=>{
 dropArea.addEventListener("drop", (event)=>{
   event.preventDefault(); 
   file = event.dataTransfer.files[0];
+  flag=true
+  enable()
   document.querySelector("#eventimg").files=event.dataTransfer.files
   showFile(); 
   
@@ -55,5 +60,10 @@ function showFile(){
     alert("This is not an Image File!");
     dropArea.classList.remove("active");
     dragText.textContent = "Drag & Drop to Upload File";
+  }
+}
+const enable=()=>{
+  if(flag && document.querySelector("#submitbtn")){
+    document.querySelector("#submitbtn").disabled=false
   }
 }

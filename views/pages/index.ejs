@@ -2,9 +2,20 @@
 <html lang="en">
   <head>
     <%- include("../partials/head") %> 
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+    </head>
   <body>
+    <script src="js/navigationbar.js"></script>
+    <style>
+      .card{
+        position:static;
+      }
+    </style>
     <div class="container p-2">
-        <h3 class="py-5">Dashboard</h3> <span><button onclick="userLogout()">Logout</button></span>
+        <h3 class="py-5" style="font-family:'Oxygen', sans-serif;">Dashboard</h3> <span><button class="btn btn-dark text-light" onclick="userLogout()">Logout</button></span>
       <div class="row">
         <div class="col-md-4 mx-auto">
           <div class="card mt-3 shadow-sm">
@@ -78,6 +89,7 @@
     </div> -->
     <%- include("../partials/scripts") %> 
     <!-- <script src="./js/table.js"></script> -->
+    
     <script>
         const userLogout = async()=>{
         const response = await fetch('/auth/logout', {

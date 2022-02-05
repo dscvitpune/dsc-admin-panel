@@ -1,165 +1,145 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html >
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   
     <%- include("../partials/head") %>
-    <link rel="stylesheet" href="css/projects.css">
-  
-</head>
-<body>
-    <div class="container mt-5">
+    <link rel="stylesheet" href="/css/projects.css">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="/images/favicon.ico"/>
+    <title>DSC Admin Panel</title></head>
+<body  >
+    
+    
     <div class="projectform">
+           
         <div>
-
-             
-                   
-
-              <form method="POST", action="/team/updateMember/<%= member._id %>" enctype="multipart/form-data">
-                  <h1 class="text-center">Edit Team Member Details</h1>
-                  <p class="text-center">Member ID : <%= member._id %></p> 
-                  <div class="form mx-auto">
-                          <div class="row">
-                                <div class="col">
-                                      <div class="row resp">
-                                            <div class="col projtitle">
-                                                  <label for="" class="form-label">First Name </label>
-                                                  <input type="text" name="firstName" class="form-control " required
-                                                        placeholder="" value="<%= member.firstName%>">
-                                            </div>
-                                            <div class="col domain">
-                                                  <label for="" class="form-label">Last Name</label>
-                                                  <input type="text" name="lastName" class="form-control " required
-                                                        placeholder="" value="<%= member.lastName %>">
-
-                                            </div>
-                                      </div>
-                                      <div class="row">
-                                            <div class="column">
-                                                  <div class="row resp">
-                                                        <div class="col projtitle">
-                                                              <label for=""
-                                                                    class="form-label mt-3">GitHub</label>
-                                                              <input type="text" name="githubProfile" class="form-control "
-                                                                    required placeholder="" value="<%= member.githubProfile %>">
-
-                                                        </div>
-                                                        <div class="col domain">
-                                                              <label for=""
-                                                                    class="form-label mt-3">Email</label>
-                                                              <input type="text" name="email" required class="form-control"
-                                                                    placeholder="" value="<%= member.email %>">
-                                                        </div>
-
-                                                  </div>
-                                            </div>
-                                      </div>
-                                      <div class="row">
-                                            <div class="col">
-
-                                                  <div class="row resp">
-                                                        <div class="col domain">
-                                                              <label for=""
-                                                                    class="form-label mt-3">Contact</label>
-                                                              <input type="text" name="mobileNumber" required class="form-control"
-                                                                    placeholder="" value="<%= member.mobileNumber %>">
-                                                        </div>
-
-                                                        <div class="col-sm-6 projtitle">
-                                                              <label for=""
-                                                                    class="form-label mt-3">Role</label>
-                                                              <div class="dropdown">
-
-                                                                    <select id="selectOption" name="role"
-                                                                          class="form-control" required
-                                                                          data-error="Please select " >
-                                                                          <option><%= member.role %>
-                                                                          </option>
-                                                                          <option value="Lead">Lead</option>
-                                                                          <option>------------</option>
-                                                                          <option value="DSC Manager">DSC Manager</option>
-                                                                          <option>------------</option>
-                                                                          <option value="Web Head">Web Head</option>
-                                                                          <option value="Android Head">Android Head</option>
-                                                                          <option value="Flutter Head">Flutter Head</option>
-                                                                          <option value="Head of Media">Head of Media</option>
-                                                                          <option value="Management Head">Management Head</option>
-                                                                          <option value="Social Media Head">Social Media Head</option>
-                                                                          <option value="Head of Content">Head of Content</option>
-                                                                          <option value="Multimedia Head">Multimedia Head</option>
-                                                                          <option >------------</option>
-                                                                          <option value="Web Manager<">Web Manager</option>
-                                                                          <option value="Android Manager">Android Manager</option>
-                                                                          <option value="Flutter Manager">Flutter Manager</option>
-                                                                          <option >------------</option>
-                                                                          <option value="Web Developer">Web Developer</option>
-                                                                          <option value="Android Developer">Android Developer</option>
-                                                                          <option value="Flutter Developer">Flutter Developer</option>
-                                                                          <option value="Multimedia Coordinator">Multimedia Coordinator</option>
-                                                                          <option value="Content Writer">Content Writer</option>
-                                                                          <option value="Event Manager">Event Manager</option>
-                                                                    </select>
-
-
-                                                                    <!-- refer projects.js for action on selecting the domain -->
-
-                                                              </div>
-
-                                                        </div>
-
-                                                  </div>
-
-                                            </div>
-                                      </div>
-                                      <div class="row resp">
-                                            <div class="col projtitle">
-                                                  <label for="" class="form-label mt-3">LinkedIn:</label>
-                                                  <input type="text" name="linkedInProfile" class="form-control " required
-                                                        placeholder="" value="<%= member.linkedInProfile %>">
-                                            </div>
-                                      </div>
-                                </div>
-
-                                <div class="col-4 uploaddiv">
-                                    <p>Current Image: </p>
-
-                                    <div class="h-100 w-auto">
-                                          <img 
-                                                src="data:image/<%=member.image.contentType%>;base64,<%=member.image.data.toString('base64')%>" 
-                                                alt="Member picture"
-                                                class="img-fluid"
-                                          >
-                                    </div>
-                                      
-                                    <p id="chosenfile" class="text-muted">Upload new Image</p>
-                                    <input  id="imgupload" type="file" name="image"/>
-                                      <!-- <div class="demoimage h-100 text-center d-table" id="demoimg"
-                                            onclick="imgupload();">
-                                            <div class="uploadimg align-middle d-table-cell">
-                                                  <img src="images/upload.png" width="60px"
-                                                        height="60px" alt="">
-                                                  <p>Upload</p>
-
-
-                                                  <p class="txtmuted" style="font-size: 0.8rem;">Drag & Drop
-                                                        or Click to choose</p>
-
-                                            </div>
-                                      </div> -->
-                                </div>
-                          </div>
-                          <div class="row mt-5 d-flex justify-content-center">
-                                <button class="btn btn-dark addproj mb-2" type="submit">Edit Member Details</button>
-                          </div>
+            <form method="POST", action="/team/updateMember/<%= member._id %>" enctype="multipart/form-data">
+        <p  class="display-6 titl text-dark mb-4 text-center">Edit Team Member Details</p>
+      <p class="text-center">Member ID : <%= member._id %></p> 
+        <div class="form mx-auto" id="formm">
+           <div class="row">
+               <div class="col">
+                <div class="row resp">
+                    <div class="col projtitle">
+                        <label for="" class="form-label">First Name </label>
+                        <input type="text" name="firstName" class="form-control " required  value="<%= member.firstName%>">
                     </div>
-              </form>
+                    <div class="col domain">
+                        <label for="" class="form-label">Last Name</label>
+                        <input type="text" name="lastName" class="form-control " required
+                                                        value="<%= member.lastName %>">
+                    </div>
+                </div>
+                <div>
+                    <div class="row">
+                        <div class="col">
+                            <label for=""
+                            class="form-label mt-3">GitHub</label>
+                            <input type="url" name="githubProfile" class="form-control "
+                            required  value="<%= member.githubProfile %>">
+                        </div>
+                        <div class="col">
+                            <label for="" class="form-label mt-3">Email</label>
+                            <input type="email" name="email" required class="form-control"
+                                                                    placeholder="" value="<%= member.email %>">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="row">
+                        <div class="col">
+                            <label for=""
+                            class="form-label mt-3">Contact</label>
+                            <input type="text" name="mobileNumber" required class="form-control"
+                            placeholder="" value="<%= member.mobileNumber %>">
+                        </div>
+                        <div class="col">
+                            <label for=""
+    class="form-label mt-3">Role</label>
+    <div class="dropdown">
+    <select  id="selectOption" name="role"
+    class="form-control bg-dark text-light text-center" required
+    data-error="Please select ">
+    <option><%= member.role %>
+    </option>
+    <option value="Lead">Lead</option>
+    <option>------------</option>
+    <option value="DSC Manager">DSC Manager</option>
+    <option>------------</option>
+    <option value="Web Head">Web Head</option>
+    <option value="Android Head">Android Head</option>
+    <option value="Flutter Head">Flutter Head</option>
+    <option value="Head of Media">Head of Media</option>
+    <option value="Management Head">Management Head</option>
+    <option value="Social Media Head">Social Media Head</option>
+    <option value="Head of Content">Head of Content</option>
+    <option value="Multimedia Head">Multimedia Head</option>
+    <option >------------</option>
+    <option value="Web Manager<">Web Manager</option>
+    <option value="Android Manager">Android Manager</option>
+    <option value="Flutter Manager">Flutter Manager</option>
+    <option >------------</option>
+    <option value="Web Developer">Web Developer</option>
+    <option value="Android Developer">Android Developer</option>
+    <option value="Flutter Developer">Flutter Developer</option>
+    <option value="Multimedia Coordinator">Multimedia Coordinator</option>
+    <option value="Content Writer">Content Writer</option>
+    <option value="Event Manager">Event Manager</option>
+    </select>
+    <!-- refer projects.js for action on selecting the domain -->
+    </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="" class="form-label mt-3">LinkedIn:</label>
+                            <input type="url" name="linkedInProfile" class="form-control " required
+                            placeholder="" value="<%= member.linkedInProfile %>">
+                        </div>
+                    </div>
+                </div>
         </div>
+        <div class="col-4 uploaddiv">
+            <div class="demoimage h-100 text-center d-table" id="demoimg" onclick="imgupload();">
+                <div class="uploadimg align-middle d-table-cell" >
+               
+                  <img 
+                  src="data:image/<%=member.image.contentType%>;base64,<%=member.image.data.toString('base64')%>"
+                  alt="Member picture"
+                  class="img-fluid"
+            >
+                <p style="font-size: 0.8rem;">Drag & Drop or Click to choose</p>
+           
+            </div>
+            <input name="image" id="imgupload"  hidden  type="file"/>
+        </div>
+        
+    </div>
+    <div class="row mt-5 d-flex justify-content-center" >
+        <button class="btn btn-dark addproj mb-2" type="submit">Edit Member Details</button>
+    </div>
+    </div>
 </div>
-</div>
+</form>
 
-
-
-
-
-
+        </div>
+        
+    </div>
+    <%- include("../partials/scripts") %>
 </body>
+
+<script src="/js/projects.js"></script>
 </html>
