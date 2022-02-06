@@ -83,7 +83,7 @@
         
     </div>
     <div class="row mt-5 d-flex justify-content-center" >
-        <button class="btn btn-dark addproj mb-2" type="submit">Add Project</button>
+        <button class="btn btn-dark addproj mb-2" id="submitbtn" type="submit">Add Project</button>
     </div>
     </div>
 </div>
@@ -131,8 +131,7 @@
        <script src="js/projects.js"></script>
        <script>
         const handleEdit = async (id) => {
-            window.location.href = `http://localhost:5000/editProject/${id}`
-        } 
+            window.location.href = `editProject/${id}`        } 
         const handleDelete = async (_id) => {
             const id = {id: _id};
             let res = await fetch(`/projects/delete/${_id}`,{

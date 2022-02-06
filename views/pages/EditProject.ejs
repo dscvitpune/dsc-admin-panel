@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
    
-    <link rel="icon" type="image/png" href="images/favicon.ico"/>
+    <link rel="icon" type="image/png" href="/images/favicon.ico"/>
     <title>DSC Admin Panel</title>
 </head>
 <body>
@@ -69,7 +69,22 @@
                 </div>
             </div>
         </div>
-       
+        <div class="col-4 uploaddiv">
+            <div class="demoimage1 h-100 text-center d-table" id="demoimg" onclick="imgupload();">
+                <div class=" uploadimg align-middle d-table-cell" >
+                    <img 
+                    class="img-fluid"
+                    src="data:image/<%=project.image.contentType%>;base64,<%=project.image.data.toString('base64')%>"
+                    alt="<%= project.title %>"
+                />
+                
+                <p class="txtmuted" style="font-size: 1rem;">Drag & Drop or Click to choose</p>
+           
+            
+            <!-- </div> -->
+            </div>
+            <input name="image" id="imgupload" hidden type="file"/>
+        </div>
         
     </div>
     <div class="row mt-5 d-flex justify-content-center" >

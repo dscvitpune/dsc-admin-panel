@@ -131,7 +131,7 @@
                         >Registration link</label
                       >
                       <input
-                        type="text"
+                        type="url"
                         value=""
                         class="form-control"
                         id="registration"
@@ -172,6 +172,7 @@
               style="margin-top: 0px; margin-bottom: 20px"
             >
               <button
+              id="submitbtn" disabled
                 type="submit"
                 class="btn btn-dark btn1 submitbtn"
               >
@@ -280,7 +281,7 @@
     </script>
     <script>
       const getEdit=(id)=>{
-        window.location.href = `http://localhost:5000/editEvent/${id}`;
+        window.location.href = `editEvent/${id}`;
       }
     </script>
    <script>

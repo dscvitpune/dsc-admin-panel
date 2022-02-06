@@ -49,12 +49,12 @@
                         <div class="col">
                             <label for=""
                             class="form-label mt-3">GitHub</label>
-                            <input type="text" name="githubProfile" class="form-control "
+                            <input type="url" name="githubProfile" class="form-control "
                             required placeholder="">
                         </div>
                         <div class="col">
                             <label for="" class="form-label mt-3">Email</label>
-                            <input type="text" name="email" required class="form-control" placeholder="">
+                            <input type="email" name="email" required class="form-control" placeholder="">
                         </div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                     <div class="row">
                         <div class="col">
                             <label for="" class="form-label mt-3">LinkedIn:</label>
-                            <input type="text" name="linkedInProfile" class="form-control " required placeholder="">
+                            <input type="url" name="linkedInProfile" class="form-control " required placeholder="">
                         </div>
                     </div>
                 </div>
@@ -188,8 +188,7 @@
         }
         
         const editTeam = (id)=>{
-        window.location.href = `http://localhost:5000/editMember/${id}`;
-        
+            window.location.href = `editMember/${id}`;        
         }
         </script>
         <script src="js/projects.js"></script>

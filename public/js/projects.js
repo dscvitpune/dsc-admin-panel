@@ -1,4 +1,5 @@
 let imginput =document.getElementById('imgupload')
+let flag=false
 /**setting the left margin of main div to right position of nav-bar since nav-bar's position is fixed */
     if(document.querySelector('.projectform')!==null && document.getElementById('navigation')!==null ){
         console.log(document.getElementById('navigation').getBoundingClientRect().right)
@@ -17,6 +18,7 @@ let imginput =document.getElementById('imgupload')
 
         }
        let img=e.target.files;
+       flag=true
        imginput.files=img
        displayimg(img[0])
     })
@@ -46,6 +48,8 @@ let imginput =document.getElementById('imgupload')
         if(imgtit.includes('.jpg') || imgtit.includes('.png') || imgtit.includes('.jpeg') || imgtit.includes('.bmp')){
             /**giving the file to the hidden input to send the file to backend*/
             imginput.files=e.dataTransfer.files;
+            flag=true
+
             if(document.getElementById('chosenfile')){
             document.getElementById('chosenfile').innerHTML=imginput.files[0].name
             }
@@ -68,3 +72,9 @@ let imginput =document.getElementById('imgupload')
         }
         fileReader.readAsDataURL(f);
     }
+
+    const enable=()=>{
+        if(flag && document.querySelector("#submitbtn")){
+          document.querySelector("#submitbtn").disabled=false
+        }
+      }
