@@ -109,7 +109,8 @@ const updateEvent = async (req, res) => {
     let response = await Event.findByIdAndUpdate(id, updateEvent);
     res.redirect("/event");
 
-    res.status(200).json({message:"Record Updated",response:response})
+    res.status(200)
+    // .json({message:"Record Updated",response:response})
   } catch (error) {
     console.error(error);
     res.status(300).json({ message: "something went wrong" });
