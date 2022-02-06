@@ -23,7 +23,7 @@ document.write(
             <div> <a href="/project" >Projects</a></div>
             <div> <a href="/teams" >Teams</a></div>
             <div>   <a href="http://certificate-generator-dsc.herokuapp.com/" >Certificates</a></div>
-            <div><a href="">Logout</a></div>
+            <div><a href="" onclick="userLogout()">Logout</a></div>
         </div>
         <div class="shortcuts" id="tools">
         
@@ -41,6 +41,14 @@ document.write(
 
     `
 )
+
+const userLogout = async()=>{
+    const response = await fetch('/auth/logout', {
+                                  method: 'POST', 
+                                });
+    console.log(response)
+    location.reload();
+  }
 
 var open=false;
        document.querySelector('#navigation').addEventListener('mouseover',()=>{

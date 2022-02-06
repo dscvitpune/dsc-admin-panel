@@ -112,8 +112,8 @@
                             <td><%= project.projectTitle%></td>
                             <td><%= project.domain%></td>
                             <td><%= project.description%></td>
-                            <td><a href="<%= project.githubLink%>"><%= project.githubLink%></a></td>
-                            <td><a href="<%= project.videoLink%>"><%= project.videoLink%></a></td>
+                            <td><a href="<%= project.githubLink%>" target="_blank"><%= project.githubLink%></a></td>
+                            <td><a href="<%= project.videoLink%>" target="_blank"><%= project.videoLink%></a></td>
                             <td class="tbuttons">
                                 <div class="t-buttons ">
                                 <button class="btn " onClick="handleEdit(`<%= project._id%>`)"><img src="images/pencil.png"></button>

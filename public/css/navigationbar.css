@@ -23,6 +23,7 @@ html{
     font-family: 'Play', sans-serif;
 }
 #navigation{  
+    z-index: 1;
     background-color: black;
     width: max-content;
     padding-right: 0.7rem;
