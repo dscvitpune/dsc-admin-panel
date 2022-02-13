@@ -26,11 +26,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
     - name: create atlasuri env var
       run: |
         touch .env
         echo ATLAS_URI=${{ secrets.ATLAS_URI }} >> .env
+    - run: npm ci
     - run: npm run build --if-present
     
   deploy:
@@ -38,6 +38,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: create atlasuri env var in prod
+      run: |
+        touch .env
+        echo ATLAS_URI=${{ secrets.ATLAS_URI }} >> .env
     - uses: akhileshns/heroku-deploy@v3.12.12
       with:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
