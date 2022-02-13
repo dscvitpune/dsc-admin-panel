@@ -30,7 +30,7 @@ jobs:
     - name: create atlasuri env var
       run: |
         touch .env
-        echo ATLAS_URI=${{ secrets.ENGINE_API_KEY }} >> .env
+        echo ATLAS_URI=${{ secrets.ATLAS_URI }} >> .env
     - run: npm run build --if-present
     
   deploy:
