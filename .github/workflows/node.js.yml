@@ -30,7 +30,7 @@ jobs:
     - name: buildapp
       env:
         ATLAS_URI: ${{secrets.ATLAS_URI}}
-    - run: npm run build --if-present
+      run: npm run build --if-present
     
   deploy:
     needs: build
