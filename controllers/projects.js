@@ -8,7 +8,7 @@ const newProject = async (req, res) => {
     contentType: req.file.mimetype,
   };
   try {
-    const existingProject = await Project.findOne({ title });
+    const existingProject = await Project.findOne({ projectTitle:title });
     var message="something went wrong"
     if (existingProject) {
       message= "project with same title already exists";
