@@ -8,36 +8,52 @@ const newEvent = async (req, res) => {
     date,
     description,
     duration,
-    status,
     registrationLink,
-    updatedAt,
     slots,
+    day,
+    slot_start,
+    slot_end,
   } = req.body;
 
   try {
     const existingEvent = await Event.findOne({ title });
-    var message="something went wrong"
+    var message = "something went wrong";
     if (existingEvent) {
-      message= "event already exists";
-      throw message
+      message = "event already exists";
+      throw message;
     }
-    
 
     const image = {
       data: req.file.buffer,
       contentType: req.file.mimetype,
     };
+    let schedule = [];
+    var n = 0;
+    for (var i = 0; i < day.length; i++) {
+      let date = day[i];
+      let slots1 = [];
+      for (var k = 0; k < parseInt(slots[i]); k++) {
+        slots1.push({
+          start: slot_start[n],
+          end: slot_end[n],
+        });
+        n++;
+      }
+      schedule.push({
+        date,
+        slots: slots1,
+      });
+    }
     let newEvent = await new Event({
       title,
       venue,
       date,
       description,
       duration,
-      status,
       registrationLink,
       updatedAt: new Date(),
-      slots,
       image,
+      schedule,
     }).save();
     // res.status(200).json({ newEvent });
     res.redirect("/event");
@@ -109,7 +125,7 @@ const updateEvent = async (req, res) => {
     let response = await Event.findByIdAndUpdate(id, updateEvent);
     res.redirect("/event");
 
-    res.status(200)
+    res.status(200);
     // .json({message:"Record Updated",response:response})
   } catch (error) {
     console.error(error);
