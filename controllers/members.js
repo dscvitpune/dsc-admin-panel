@@ -10,6 +10,7 @@ const createMember = async (req, res) => {
     role,
     githubProfile,
     mobileNumber,
+    year
   } = req.body;
   let image = {
     data: req.file.buffer,
@@ -25,6 +26,7 @@ const createMember = async (req, res) => {
       role,
       mobileNumber,
       image: image,
+      year
     }).save();
 
     res.redirect("/teams");
@@ -46,7 +48,7 @@ const getAllMembers = async (req, res) => {
 
 const dscLead = async (req, res) => {
   try {
-    const lead = await Member.findOne({ role: "head" });
+    const lead = await Member.find({role:"Lead"});
     res.status(200).json(lead);
   } catch (e) {
     console.error(e);
@@ -56,19 +58,40 @@ const dscLead = async (req, res) => {
 
 const dscHeads = async (req, res) => {
   try {
-    const heads = await Member.find({ role: "head" });
-    res.status(200).json({ heads: heads });
+    const heads = []
+    const allMembers = await Member.find();
+    allMembers.forEach((element)=>{
+      if(element.role.includes("Head")) heads.push(element)
+    })
+    res.status(200).json({ heads });
   } catch (e) {
     console.error(e);
     res.staus(300).json({ message: "something went wrong" });
   }
 };
 
-const dscProjectManagers = async (req, res) => {
+const dscManager = async(req,res)=>{
   try {
-    const projectManagers = await Member.find({ role: "project manager" });
-    console.log(projectManagers);
-    res.status(200).json({ projectManagers: projectManagers });
+    const manager = []
+    const allMembers = await Member.find();
+    allMembers.forEach((element)=>{
+      if(element.role.includes("DSC Manager")) manager.push(element)
+    })
+    res.status(200).json({ manager });
+  } catch (e) {
+    console.error(e);
+    res.staus(300).json({ message: "something went wrong" });
+  }
+}
+
+const dscManagers = async (req, res) => {
+  try {
+    const managers = []
+    const allMembers = await Member.find();
+    allMembers.forEach((element)=>{
+      if(element.role.includes("Manager") && !element.role.includes("DSC Manager")) managers.push(element)
+    })
+    res.status(200).json({ managers });
   } catch (e) {
     console.error(e);
     res.staus(300).json({ message: "something went wrong" });
@@ -77,8 +100,8 @@ const dscProjectManagers = async (req, res) => {
 
 const dscWebTeam = async (req, res) => {
   try {
-    const webTeam = await Member.find({ role: "web developer" });
-    res.status(200).json({ webTeam: webTeam });
+    const webTeam = await Member.find({ role: "Web Developer" });
+    res.status(200).json({  webTeam });
   } catch (e) {
     console.error(e);
     res.staus(300).json({ message: "something went wrong" });
@@ -86,7 +109,7 @@ const dscWebTeam = async (req, res) => {
 };
 const dscAndroidTeam = async (req, res) => {
   try {
-    const androidTeam = await Member.find({ role: "android developer" });
+    const androidTeam = await Member.find({ role: "Android Developer" });
     res.status(200).json({ androidTeam: androidTeam });
   } catch (e) {
     console.error(e);
@@ -95,7 +118,7 @@ const dscAndroidTeam = async (req, res) => {
 };
 const dscFlutterTeam = async (req, res) => {
   try {
-    const flutterTeam = await Member.find({ role: "flutter developer" });
+    const flutterTeam = await Member.find({ role: "Flutter Developer" });
     res.status(200).json({ flutterTeam: flutterTeam });
   } catch (e) {
     console.error(e);
@@ -104,22 +127,32 @@ const dscFlutterTeam = async (req, res) => {
 };
 const dscMultimediaTeam = async (req, res) => {
   try {
-    const multimediaTeam = await Member.find({ role: "multi media" });
+    const multimediaTeam = await Member.find({ role: "Multimedia Coordinator" });
     res.status(200).json({ multimediaTeam: multimediaTeam });
   } catch (e) {
     console.error(e);
     res.staus(300).json({ message: "something went wrong" });
   }
 };
-const dscManagement = async (req, res) => {
+const dscManagementTeam = async (req, res) => {
   try {
-    const managementTeam = await Member.find({ role: "manager" });
-    res.status(200).json({ managementTeam: managementTeam });
+    const multimediaTeam = await Member.find({ role: "Event Manager" });
+    res.status(200).json({ multimediaTeam: multimediaTeam });
   } catch (e) {
     console.error(e);
     res.staus(300).json({ message: "something went wrong" });
   }
 };
+const dscContentTeam = async (req, res) => {
+  try {
+    const multimediaTeam = await Member.find({ role: "Content Writer" });
+    res.status(200).json({ multimediaTeam: multimediaTeam });
+  } catch (e) {
+    console.error(e);
+    res.staus(300).json({ message: "something went wrong" });
+  }
+};
+
 
 const deleteMember = async (req, res) => {
   const { id } = req.body;
@@ -193,17 +226,7 @@ const updateMember = async (req, res) => {
   }
 };
 
-// module.createMemeber = createMember;
-// module.getAllMembers = getAllMembers;
-// module.dscLead = dscLead;
-// module.dscHeads = dscHeads;
-// module.dscWebTeam = dscWebTeam;
-// module.dscAndroidTeam = dscAndroidTeam;
-// module.dscFLutterTeam = dscFlutterTeam;
-// module.dscMultimediaTeam = dscMultimediaTeam;
-// module.dscManagement = dscManagement;
-// module.deleteMember = deleteMember;
-// module.updateMember = updateMember;
+
 
 module.exports = {
   createMember,
@@ -213,10 +236,12 @@ module.exports = {
   dscWebTeam,
   dscAndroidTeam,
   dscFlutterTeam,
-  dscManagement,
   dscMultimediaTeam,
-  dscProjectManagers,
+  dscManagers,
   deleteMember,
   displayOne,
   updateMember,
+  dscManager,
+  dscManagementTeam,
+  dscContentTeam
 };

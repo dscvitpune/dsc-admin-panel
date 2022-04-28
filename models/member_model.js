@@ -19,6 +19,7 @@ const memberSchema = new Schema({
     githubProfile: {type: String, required: true},
     role: {type: String, required: true},
     mobileNumber : {type: Number, required: false},
+    year:{type:Number},
     image: {
         data: Buffer,
         contentType: String
