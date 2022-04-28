@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Project = mongoose.model("projects");
 
 const newProject = async (req, res) => {
-  const { title, domain, desc, github, video } = req.body;
+  const { title, domain, desc, github, video,projectLink } = req.body;
   image = {
     data: req.file.buffer,
     contentType: req.file.mimetype,
@@ -22,6 +22,7 @@ const newProject = async (req, res) => {
       githubLink: github,
       videoLink: video,
       image: image,
+      projectLink
     }).save();
 
     res.redirect("/project");
