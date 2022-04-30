@@ -9,6 +9,7 @@ const eventSchema = new Schema({
   registrationLink:{type:String, required:true},
   createdAt: { type: String, required: true, default: new Date() },
   updatedAt: { type: String, required: true },
+  endDate:{ type: Date, required: true },
   image: {
     data: Buffer,
     contentType: String,
