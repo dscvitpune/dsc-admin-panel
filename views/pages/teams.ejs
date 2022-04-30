@@ -106,8 +106,12 @@
                 <div>
                     <div class="row">
                         <div class="col">
-                            <label for="" class="form-label mt-3">LinkedIn:</label>
+                            <label for="" class="form-label mt-3">LinkedIn</label>
                             <input type="url" name="linkedInProfile" class="form-control " required placeholder="">
+                        </div>
+                        <div class="col">
+                            <label for="" class="form-label mt-3">Year</label>
+                            <input type="number" name="year" class="form-control " required placeholder="Eg. 2021">
                         </div>
                     </div>
                 </div>
@@ -144,7 +148,8 @@
             <th style="width:5%;">Name</th>
             <th style="width:5%;">Email</th>
             <th style="width:5%;">Mobile No.</th>
-            <th style="width:5%;">Role</th>
+            <th style="width:6%;">Role</th>
+            <th style="width:4%;">year</th>
             <th style="width:1%;">GitHub</th>
             <th style="width:0.5%;">LinkedIn</th>
             <th style="width:1%;">Controls</th>
@@ -158,6 +163,7 @@
             <td><%= member.email%></td>
             <td><%= member.mobileNumber%></td>
             <td><%= member.role%></td>
+            <td><%= member.year%></td>
             <td><a href="<%= member.githubProfile%>" class="btn btn-link">Click Here</a></td>
             <td><a href="<%= member.linkedInProfile%>" class="btn btn-link">Click Here</a></td>
             <td class="tbuttons">
