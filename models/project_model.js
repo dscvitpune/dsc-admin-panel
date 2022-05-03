@@ -1,16 +1,22 @@
 const { model, Schema } = require("mongoose");
 
 const projectSchema = new Schema({
-    projectTitle: {type: String, required: true},
-    domain: {type: String, required: true},
-    description: {type: String, required: true},
-    githubLink: {type: String, required: true},
-    videoLink: {type: String},
-    projectLink:{type:String},
-    image: {
-        data: Buffer,
-        contentType: String
-    }
-})
+  projectTitle: { type: String, required: true },
+  domain: { type: String, required: true },
+  description: { type: String, required: true },
+  githubLink: { type: String, required: true },
+  videoLink: { type: String },
+  projectLink: { type: String },
+  image: {
+    data: Buffer,
+    contentType: String,
+  },
+  ProjectImages: [
+    {
+      data: Buffer,
+      contentType: String,
+    },
+  ],
+});
 
 model("projects", projectSchema);

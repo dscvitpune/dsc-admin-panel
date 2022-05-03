@@ -14,6 +14,12 @@ const eventSchema = new Schema({
     data: Buffer,
     contentType: String,
   },
+  EventImages:[
+     {
+      data: Buffer,
+      contentType: String,
+    },
+  ],
   schedule:[
     {
       date:{
