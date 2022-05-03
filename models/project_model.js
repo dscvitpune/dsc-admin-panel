@@ -6,6 +6,7 @@ const projectSchema = new Schema({
     description: {type: String, required: true},
     githubLink: {type: String, required: true},
     videoLink: {type: String},
+    projectLink:{type:String},
     image: {
         data: Buffer,
         contentType: String

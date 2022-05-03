@@ -110,6 +110,22 @@
                         for="name"
                         class="control-label"
                         style="float: left"
+                        >End Date</label
+                      >
+                      <input
+                        type="date"
+                        value=""
+                        class="form-control "
+                        id="end-date"
+                        name="endDate"
+                      
+                      />
+                    </div>
+                    <div class="form-group col-xs-8 col-md-6">
+                      <label
+                        for="name"
+                        class="control-label"
+                        style="float: left"
                         >Duration</label
                       >
                       <input
@@ -187,7 +203,6 @@
         <h1 class="pgtitle">Events</h1>
         <ul class="ml-5">
           <% if(Events) { %>
-
             <% Events.forEach(event=>{ %>
             <li class="card">
               <div class="container py-3">
@@ -200,15 +215,49 @@
                           <p><%=event.venue%></p>
                         </div>
                         <div class="col-sm-6 col-md-6 status">
-                          <p class="text-light bg-dark"><%=event.status%></p>
+                          <p class="text-light bg-dark">Upcoming</p>
                         </div>
                       </div>
-                      <p class="card-text" style="padding-left: 7px;"><%=event.description%></p>
+                      <p class="card-text mt-2" style="padding-left: 7px; font-size: small"><%=event.description%></p>
                       <div class="d-flex flex-row ml-2 mb-1">
                         <i class="fa fa-calendar" style="font-size: 25px"></i>
-                        <p style="padding-left: 7px;margin-bottom: 0px; font-size: large">
-                          <%=event.date%>
+                        <p style="padding-left: 7px;margin-bottom: 0px; font-size: medium">
+                          Start Date: <%=event.date%>
                         </p>
+                      </div>
+                      <div class="d-flex flex-row ml-2 mb-1">
+                        <i class="fa fa-calendar" style="font-size: 25px"></i>
+                        <p style="padding-left: 7px;margin-bottom: 0px; font-size: medium">
+                          End Date: <%=event.endDate%>
+                        </p>
+                      </div>
+                      <div>
+                        <p>Total Days: <%=event.duration%> </p>
+                      </div>
+                      <p>Schedule
+                      </p>
+                      <!-- <div class="d-flex flex-wrap"> -->
+                        <div>
+                        
+                        <% if(event.schedule) { %>
+                          <% event.schedule.forEach((day,index)=>{ %>
+                            <!-- <div class="m-4 bg-secondary rounded p-2"> -->
+                              <div>
+                              <p style="font-size: small">
+                                Day <%=index+1%> : <%=day.date%>
+                              </p>
+                              <ul>
+                                <% if(day.slots) { %>
+                                  <% day.slots.forEach((slot,key)=>{ %>
+                                    <div>
+                                      <p style="font-size: small">Slot <%=key+1%>: <%=slot.start%> - <%=slot.end%> </p>
+                                    </div>
+                                    <% }) %>
+                                    <% } %>
+                                  </ul>
+                                </div>
+                                  <% }) %>
+                                  <% } %>
                       </div>
                       <div class="d-flex flex-row">
                         <a target="_blank" href="<%= event.registrationLink%>">

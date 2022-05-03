@@ -1,5 +1,4 @@
 const duration = document.getElementById('duration')
-
 console.log(duration)
 duration.addEventListener('input', (e) => {
     //get duration value
@@ -24,7 +23,10 @@ duration.addEventListener('input', (e) => {
         </div>`
         // append in selected division
         daySlotsRow.appendChild(row)
+
     }
+
+
     //console.log(daySlotsRow)
     const slots = document.querySelectorAll('.slots')
     console.log(slots)
@@ -52,12 +54,12 @@ duration.addEventListener('input', (e) => {
                     //html for start time and end time in one row
                     slotsRow.innerHTML = `
                     <div class="form-group col-xs-8 col-md-6 slots" style="margin-right:5px">
-                        <label for="slot-${i+1}" class="control-label" style="float: left;">slot-${i+1}</label>
-                        <input placeholder="Start time" type="time" name="slot_start" class="form-control" style="background-color: #D7DBDD;">
+                        <label for="slot-${i+1}" class="control-label"  style="float: left;">slot-${i+1}</label>
+                        <input placeholder="Start time" type="time" id="slot-${i+1}" name="slot_start" class="form-control" style="background-color: #D7DBDD;">
                     </div>
                     <div class="form-group col-xs-8 col-md-6 slots">
                         <label for="slot-${i+1}" class="control-label" style="float: left;">slot-${i+1}</label>
-                        <input placeholder="End time" type="time" name="slot_end" class="form-control" style="background-color: #D7DBDD;">
+                        <input placeholder="End time" type="time" id="slot-${i+1}" name="slot_end" class="form-control" style="background-color: #D7DBDD;">
                     </div>
                     `
                     //append one row each
@@ -76,9 +78,19 @@ duration.addEventListener('input', (e) => {
                 }
                 
                 //console.log(numberOfSlots)
+                const totalDays = []
+                const dates = []
+                for(var i=0;i<duration.value;i++){
+                    for(var j=0;j<numberOfSlots;j++){
+                        const data = document.getElementById(`slot-${j}`).value
+                        console.log("SLOT ",j,"=",data)
+                    }
+                }
+              
             })
         })
     }
+
 })
 
 

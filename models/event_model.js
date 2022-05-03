@@ -6,15 +6,31 @@ const eventSchema = new Schema({
   date: { type: Date, required: true },
   description: { type: String, required: true },
   duration: { type: Number, required: true },
-  status: { type: String, required: true,default:"Upcoming" },
   registrationLink:{type:String, required:true},
   createdAt: { type: String, required: true, default: new Date() },
   updatedAt: { type: String, required: true },
-  slots:{type:Schema.Types.Mixed},
+  endDate:{ type: Date, required: true },
   image: {
     data: Buffer,
     contentType: String,
   },
+  schedule:[
+    {
+      date:{
+        type:String
+      },
+      slots:[
+        {
+          start:{
+            type:String,
+          },
+          end:{
+            type:String
+          }
+        }
+      ]
+    }
+  ]
 });
 
 model("events", eventSchema);
