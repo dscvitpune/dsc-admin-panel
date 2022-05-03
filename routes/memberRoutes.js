@@ -30,7 +30,7 @@ module.exports = (app) => {
     app.get('/team/dscMultimediaTeam', dscMultimediaTeam);
     app.get('/team/dscManagementTeam', dscManagementTeam);
     app.get('/team/dscContentTeam', dscContentTeam);
-    app.get('/team/projectManagers', dscManagers);
+    // app.get('/team/projectManagers', dscManagers);
     app.get('/team/displayOne', upload.single("image"),displayOne);
     app.post('/team/deleteMember', deleteMember),
     app.post('/team/updateMember/:id', upload.single("image"), updateMember)
