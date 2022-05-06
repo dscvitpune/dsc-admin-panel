@@ -55,11 +55,11 @@ duration.addEventListener('input', (e) => {
                     slotsRow.innerHTML = `
                     <div class="form-group col-xs-8 col-md-6 slots" style="margin-right:5px">
                         <label for="slot-${i+1}" class="control-label"  style="float: left;">slot-${i+1}</label>
-                        <input placeholder="Start time" type="time" id="slot-${i+1}" name="slot_start" class="form-control" style="background-color: #D7DBDD;">
+                        <input placeholder="Start time" required type="time" id="slot-${i+1}" name="slot_start" class="form-control" style="background-color: #D7DBDD;">
                     </div>
                     <div class="form-group col-xs-8 col-md-6 slots">
                         <label for="slot-${i+1}" class="control-label" style="float: left;">slot-${i+1}</label>
-                        <input placeholder="End time" type="time" id="slot-${i+1}" name="slot_end" class="form-control" style="background-color: #D7DBDD;">
+                        <input placeholder="End time" required type="time" id="slot-${i+1}" name="slot_end" class="form-control" style="background-color: #D7DBDD;">
                     </div>
                     `
                     //append one row each

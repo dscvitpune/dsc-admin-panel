@@ -7,6 +7,8 @@
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
     crossorigin="anonymous"
   />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
    
     <link rel="stylesheet" href="/css/navigationbar.css">
     <link rel="stylesheet" href="/css/events.css" />
@@ -16,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f79e5c4560.js" crossorigin="anonymous"></script>
   </head>
   <body>
@@ -121,6 +124,9 @@
                       
                       />
                     </div>
+                    
+                  </div>
+                  <div class="row">
                     <div class="form-group col-xs-8 col-md-6">
                       <label
                         for="name"
@@ -137,9 +143,7 @@
                       
                       />
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="form-group col-xs-8 col-md-12">
+                    <div class="form-group col-xs-8 col-md-6">
                       <label
                         for="name"
                         class="control-label"
@@ -190,7 +194,7 @@
               <button
               id="submitbtn" disabled
                 type="submit"
-                class="btn btn-dark btn1 submitbtn"
+                class="btn btn-dark btn1 submitbtn col-md-4"
               >
                 Add Event
               </button>
@@ -219,60 +223,25 @@
                         </div>
                       </div>
                       <p class="card-text mt-2" style="padding-left: 7px; font-size: small"><%=event.description%></p>
-                      <div class="d-flex flex-row ml-2 mb-1">
-                        <i class="fa fa-calendar" style="font-size: 25px"></i>
-                        <p style="padding-left: 7px;margin-bottom: 0px; font-size: medium">
-                          Start Date: <%=event.date%>
-                        </p>
-                      </div>
-                      <div class="d-flex flex-row ml-2 mb-1">
-                        <i class="fa fa-calendar" style="font-size: 25px"></i>
-                        <p style="padding-left: 7px;margin-bottom: 0px; font-size: medium">
-                          End Date: <%=event.endDate%>
-                        </p>
-                      </div>
-                      <div>
+                      
+                      <div class="pl-2">
                         <p>Total Days: <%=event.duration%> </p>
                       </div>
-                      <p>Schedule
-                      </p>
-                      <!-- <div class="d-flex flex-wrap"> -->
-                        <div>
-                        
-                        <% if(event.schedule) { %>
-                          <% event.schedule.forEach((day,index)=>{ %>
-                            <!-- <div class="m-4 bg-secondary rounded p-2"> -->
-                              <div>
-                              <p style="font-size: small">
-                                Day <%=index+1%> : <%=day.date%>
-                              </p>
-                              <ul>
-                                <% if(day.slots) { %>
-                                  <% day.slots.forEach((slot,key)=>{ %>
-                                    <div>
-                                      <p style="font-size: small">Slot <%=key+1%>: <%=slot.start%> - <%=slot.end%> </p>
-                                    </div>
-                                    <% }) %>
-                                    <% } %>
-                                  </ul>
-                                </div>
-                                  <% }) %>
-                                  <% } %>
-                      </div>
-                      <div class="d-flex flex-row">
+                      
+                      <div class="d-flex flex-row actionbtns">
                         <a target="_blank" href="<%= event.registrationLink%>">
                           <button
                             type="button"
-                            class="btn btn-primary"
-                            style="margin: 5px"
+                            class="btn btn-dark"
+                            style="margin: 5px;"
                           >
                             Register
                           </button>
                         </a>
                         <button
                           type="submit"
-                          class="btn btn-danger"
-                          style="margin: 5px"
+                          class="btn btn-light"
+                          style="margin: 5px;border-color:black ; "
                           onclick="deleteEvent(`<%= event._id %>`)"
                         >
                           Delete
@@ -280,22 +249,74 @@
 
                         <button
                           type="button"
-                          class="btn btn-info"
-                          style="margin: 5px"
+                          class="btn btn-light"
+                          style="margin: 5px;border-color:black"
                           onclick="getEdit('<%=event._id%>')"
                         >
                           Edit
                         </button>
+                       
                       </div>
                     </div>
                   </div>
                   <div class="col-md-5" style="text-align: center">
                     <img
                     class="img"
+                    style="border-radius: 0.5rem;"
                     src="data:image/<%=event.image.contentType%>;base64,<%=event.image.data.toString('base64')%>"
                     alt="<%=event.title%>"
                   />
                   </div>
+                </div>
+                <div class="row mt-3 mr-2" >
+                  <div class="d-flex" style="background-color: #D7DBDD; border-radius: 0.5rem; padding-right: 0px;" >
+                    <div style="width:3px; height:auto; padding-top: 10px;">
+                      <i class="fa fa-calendar" style="font-size: 20px"></i>
+                      <div  id="flownoutdiv">
+                    </div>
+                    <i class="fa fa-calendar" style="font-size: 20px"></i>                     
+                    </div>
+                    <div style="display:flex;flex-direction: column;" >
+                    <div class="d-flex flex-row ml-4 mb-1 mt-1 " >
+                      <!-- <i class="fa fa-calendar" style="font-size: 25px"></i> -->
+                      <p class="date">
+                        Start Date: <%=event.date%>
+                      </p>
+                    </div>
+                    <div class="d-flex flex-row ml-4 mb-1" style="margin-top: auto;">
+                      <!-- <i class="fa fa-calendar" style="font-size: 25px"></i> -->
+                      <p class="date">
+                        End Date: <%=event.endDate%>
+                      </p>
+                    </div>
+                  </div>
+                    <div class="accordion w-100" id="accordionPanelsStayOpenExample">
+                    
+                      <% if(event.schedule) { %>
+                        <% event.schedule.forEach((day,index)=>{ %>
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" >
+                              <button class="accordion-button collapsed <% if(index==0){ %> bg-dark text-light <%} %> " type="button" data-bs-toggle="collapse" data-bs-target="#<%=event.title.replace(' ','')%><%=index%>">
+                                Day <%=index+1%> : <%=day.date%>
+                              </button>
+                            </h2>
+                            <div id="<%=event.title.replace(' ','')%><%=index%>" class="accordion-collapse collapse
+                              <%if(index==0){ %> show <%} %> "  data-bs-parent="#accordionExample">
+                              <div class="accordion-body">
+                                <% if(day.slots) { %>
+                                  <% day.slots.forEach((slot,key)=>{ %>
+                                    <p style="font-size: medium">Slot <%=key+1%>: <%=slot.start%> - <%=slot.end%> </p>
+                                    <% }) %>
+                                    <% } %>  
+                              </div>
+                            </div>
+                          </div>
+                      <% }) %>
+                      <% } %>
+                    </div>
+                      
+                  </div>
+                  
                 </div>
               </div>
             </li>

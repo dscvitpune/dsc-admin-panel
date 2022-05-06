@@ -157,9 +157,51 @@ transform: scale(1.1)
 }
 
 .venue {
-
 	text-align: left;
 }
+.date{
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	margin-bottom: 0px;
+	 font-size: small
+}
+/* slots accordion*/
+.accordion-body p:last-child{
+	margin-bottom: 0px;
+}
+
+.accordion-button,.accordion-body{
+	font-family: "Libre Franklin", sans-serif;
+}
+/*event actions*/
+.actionbtns button{
+	font-family: "Poppins", sans-serif;	
+}
+.actionbtns button:nth-child(1):hover{
+	background-image: none;
+	color: #fff;
+	background-color:#2f2f2f;
+}
+.actionbtns button:nth-child(1){
+	background-image: linear-gradient(to top,#000000 ,rgb(106, 106, 106) 96%);
+	color: #ffff;
+	border-color: #252525;
+}
+.actionbtns button:not(.actionbtns button:nth-child(1)){
+	background-image: linear-gradient(#ffffff ,rgb(217, 217, 217) 90%);
+	border-image: linear-gradient(#030303 ,rgb(209, 209, 209) 90%);
+}
+.actionbtns button:not(.actionbtns button:nth-child(1)):hover{
+	background-image:none;
+	background-color: #fff;
+	color: #000;
+	border: 1px solid;
+	border-color: #000;
+	
+}
+
 .venue p {
 	font-size: 20px;
 	font-weight: 400;
@@ -197,4 +239,11 @@ transform: scale(1.1)
 }
 .active{
 	border-color: limegreen;
+}
+
+#flownoutdiv{
+	height: calc(100% - 60px);
+	background-color: black; 
+	width:3px;
+	margin-left: 7px;
 }
