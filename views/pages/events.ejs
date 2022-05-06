@@ -296,12 +296,13 @@
                         <% event.schedule.forEach((day,index)=>{ %>
                           <div class="accordion-item">
                             <h2 class="accordion-header" >
-                              <button class="accordion-button collapsed <% if(index==0){ %> bg-dark text-light <%} %> " type="button" data-bs-toggle="collapse" data-bs-target="#<%=event.title.replace(' ','')%><%=index%>">
+                              <button class="accordion-button collapsed <% if(index==0){ %> bg-dark text-light <%} %> " type="button" data-bs-toggle="collapse" 
+                                data-bs-target="#<%=event.title.replace(' ','')%><%=index%>">
                                 Day <%=index+1%> : <%=day.date%>
                               </button>
                             </h2>
                             <div id="<%=event.title.replace(' ','')%><%=index%>" class="accordion-collapse collapse
-                              <%if(index==0){ %> show <%} %> "  data-bs-parent="#accordionExample">
+                              <%if(index==0){ %> show <%} %> "  >
                               <div class="accordion-body">
                                 <% if(day.slots) { %>
                                   <% day.slots.forEach((slot,key)=>{ %>
