@@ -67,30 +67,55 @@
                             placeholder="">
                         </div>
                         <div class="col">
-                            <label for=""
-    class="form-label mt-3">Role</label>
-    <div class="dropdown">
-    <select  id="selectOption" name="role"
-    class="form-control bg-dark text-light text-center" required
-    data-error="Please select ">
-    <option>-- Select your Role --</option>
-    <option value="Lead">DSC Lead</option>
-    <option value="Head">Head</option>
-    <option value="Manager">Manager</option>
-    <option value="Senior Developer">Senior Developer</option>
-    <option value="Junior Developer">Junior Developer</option>
-    </select>
-    <!-- refer projects.js for action on selecting the domain -->
-    </div>
+                            <label for="" class="form-label mt-3">Role</label>
+                                    <div class="dropdown">
+                                    <select  id="selectOption" name="role"
+                                    class="form-control bg-dark text-light text-center" required
+                                    data-error="Please select ">
+                                    <option>-- Select your Role --</option>
+                                    <option value="Lead">DSC Lead</option>
+                                    <option value="Head">Head</option>
+                                    <option value="Manager">Manager</option>
+                                    <option value="Senior Developer">Senior Developer</option>
+                                    <option value="Junior Developer">Junior Developer</option>
+                                    </select>
+                                    <!-- refer projects.js for action on selecting the domain -->
+                                    </div>
                         </div>
                     </div>
                 </div>
                 <div>
                     <div class="row">
                         <div class="col">
-                            <label for="" class="form-label mt-3">Position</label>
+                            <label for="" class="form-label mt-3">Position (This will be displayed)</label>
                             <input type="text" name="position" class="form-control " required placeholder="">
                         </div>
+                        <div class="col">
+                            <label for="" class="form-label mt-3">Team</label>
+                                    <div class="dropdown">
+                                    <select  id="selectOption" name="team"
+                                    class="form-control bg-dark text-light text-center" required
+                                    data-error="Please select ">
+                                    <option>-- Select your Team --</option>
+                                    <option value="Core">Core</option>
+                                    <option value="Web">Web</option>
+                                    <option value="Android">Android</option>
+                                    <option value="Flutter">Flutter</option>
+                                    <option value="Management">Management</option>
+                                    <option value="Multimedia">Multimedia</option>
+
+
+
+
+                                  
+                                    </select>
+                                    <!-- refer projects.js for action on selecting the domain -->
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="row">
                         <div class="col">
                             <label for="" class="form-label mt-3">Year</label>
                             <input type="number" name="year" class="form-control " required placeholder="Eg. 2021">
@@ -131,6 +156,7 @@
             <th style="width:5%;">Email</th>
             <th style="width:5%;">Mobile No.</th>
             <th style="width:6%;">Role</th>
+            <th style="width:6%;">Team</th>
             <th style="width:6%;">Position</th>
             <th style="width:4%;">Year</th>
             <th style="width:1%;">GitHub</th>
@@ -146,6 +172,7 @@
             <td><%= member.email%></td>
             <td><%= member.mobileNumber%></td>
             <td><%= member.role%></td>
+            <td><%= member.team%></td>
             <td><%= member.position%></td>
             <td><%= member.year%></td>
             <td><a target="_blank" href="<%= member.githubProfile%>" class="btn btn-link">Click Here</a></td>

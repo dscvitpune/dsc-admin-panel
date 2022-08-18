@@ -19,6 +19,7 @@ const memberSchema = new Schema({
     mobileNumber : {type: Number, required: false},
     role: {type: String, required: true},
     position: {type: String, required: true},
+    team:{type: String, required: true},
     year:{type:Number,required: true},
     image: {
         data: Buffer,

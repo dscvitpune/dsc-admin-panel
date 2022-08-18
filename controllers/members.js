@@ -10,7 +10,8 @@ const createMember = async (req, res) => {
     position,
     githubProfile,
     mobileNumber,
-    year
+    year,
+    team
   } = req.body;
   let image = {
     data: req.file.buffer,
@@ -26,7 +27,8 @@ const createMember = async (req, res) => {
       position,
       mobileNumber,
       image: image,
-      year
+      year,
+      team
     }).save();
 
     res.redirect("/teams");
@@ -190,6 +192,7 @@ const updateMember = async (req, res) => {
     role,
     email,
     year,
+    team
   } = req.body;
   const memberId = req.params.id;
   let getImageData = await Member.findById(memberId);
@@ -215,6 +218,7 @@ const updateMember = async (req, res) => {
     role,
     email,
     year,
+    team,
         image:image
       },
       { new: true }
