@@ -23,7 +23,6 @@ const memberSchema = new Schema({
     image: {
         data: Buffer,
         contentType: String,
-        required: true
     }
 });
 

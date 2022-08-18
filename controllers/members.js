@@ -3,11 +3,11 @@ const Member = model("members");
 
 const createMember = async (req, res) => {
   const {
-    firstName,
-    lastName,
+    fullname,
     email,
     linkedInProfile,
     role,
+    position,
     githubProfile,
     mobileNumber,
     year
@@ -18,12 +18,12 @@ const createMember = async (req, res) => {
   };
   try {
     let newMember = await new Member({
-      firstName,
-      lastName,
+      fullname,
       email,
       linkedInProfile,
       githubProfile,
       role,
+      position,
       mobileNumber,
       image: image,
       year

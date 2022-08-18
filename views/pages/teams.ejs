@@ -142,14 +142,14 @@
             <% allMembers.forEach((member, idx) => { %>
             <tr>
             <td><%= idx+1%></td>
-            <td><%= member.firstName%></td>
+            <td><%= member.fullname%></td>
             <td><%= member.email%></td>
             <td><%= member.mobileNumber%></td>
             <td><%= member.role%></td>
             <td><%= member.position%></td>
             <td><%= member.year%></td>
-            <td><a href="<%= member.githubProfile%>" class="btn btn-link">Click Here</a></td>
-            <td><a href="<%= member.linkedInProfile%>" class="btn btn-link">Click Here</a></td>
+            <td><a target="_blank" href="<%= member.githubProfile%>" class="btn btn-link">Click Here</a></td>
+            <td><a target="_blank" href="<%= member.linkedInProfile%>" class="btn btn-link">Click Here</a></td>
             <td class="tbuttons">
             <div class="t-buttons ">
             <button class="btn" onclick="editTeam(`<%= member._id%>`)" ><img src="images/pencil.png"></button>
