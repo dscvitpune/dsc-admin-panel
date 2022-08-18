@@ -19,10 +19,11 @@ const memberSchema = new Schema({
     mobileNumber : {type: Number, required: false},
     role: {type: String, required: true},
     position: {type: String, required: true},
-    year:{type:Number},
+    year:{type:Number,required: true},
     image: {
         data: Buffer,
-        contentType: String
+        contentType: String,
+        required: true
     }
 });
 
