@@ -182,13 +182,14 @@ const displayOne = async (req, res) => {
 };
 const updateMember = async (req, res) => {
   const {
-    firstName,
-    lastName,
+    fulllname,
+    position,
     linkedInProfile,
     githubProfile,
     mobileNumber,
     role,
     email,
+    year,
   } = req.body;
   const memberId = req.params.id;
   let getImageData = await Member.findById(memberId);
