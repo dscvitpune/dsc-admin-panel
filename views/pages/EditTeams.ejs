@@ -93,6 +93,32 @@
                             required  value="<%= member.position %>">
                         </div>
                         <div class="col">
+                            <label for="" class="form-label mt-3">Team</label>
+                                    <div class="dropdown">
+                                    <select  id="selectOption" name="team"
+                                    class="form-control bg-dark text-light text-center" required
+                                    data-error="Please select ">
+                                    <option><%= member.team %></option>
+                                    <option value="Core">Core</option>
+                                    <option value="Web">Web</option>
+                                    <option value="Android">Android</option>
+                                    <option value="Flutter">Flutter</option>
+                                    <option value="Management">Management</option>
+                                    <option value="Multimedia">Multimedia</option>
+
+
+
+
+                                  
+                                    </select>
+                                    <!-- refer projects.js for action on selecting the domain -->
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+                 <div>
+                    <div class="row">
+                        <div class="col">
                             <label for="" class="form-label mt-3">Year</label>
                             <input type="text" name="year" required class="form-control"
                                                                     placeholder="" value="<%= member.year %>">
