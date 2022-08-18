@@ -32,13 +32,13 @@
                <div class="col">
                 <div class="row resp">
                     <div class="col projtitle">
-                        <label for="" class="form-label">First Name </label>
-                        <input type="text" name="firstName" class="form-control " required  value="<%= member.firstName%>">
+                        <label for="" class="form-label">Full Name </label>
+                        <input type="text" name="firstName" class="form-control " required  value="<%= member.fullname%>">
                     </div>
                     <div class="col domain">
-                        <label for="" class="form-label">Last Name</label>
-                        <input type="text" name="lastName" class="form-control " required
-                                                        value="<%= member.lastName %>">
+                        <label for="" class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control " required
+                                                        value="<%= member.email %>">
                     </div>
                 </div>
                 <div>
@@ -50,9 +50,9 @@
                             required  value="<%= member.githubProfile %>">
                         </div>
                         <div class="col">
-                            <label for="" class="form-label mt-3">Email</label>
-                            <input type="email" name="email" required class="form-control"
-                                                                    placeholder="" value="<%= member.email %>">
+                            <label for="" class="form-label mt-3">LinkedIn</label>
+                            <input type="text" name="linkedInProfile" required class="form-control"
+                                                                    placeholder="" value="<%= member.linkedInProfile %>">
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                         <div class="col">
                             <label for=""
                             class="form-label mt-3">Contact</label>
-                            <input type="text" name="mobileNumber" required class="form-control"
+                            <input type="number" name="mobileNumber" required class="form-control"
                             placeholder="" value="<%= member.mobileNumber %>">
                         </div>
                         <div class="col">
@@ -73,29 +73,11 @@
     data-error="Please select ">
     <option><%= member.role %>
     </option>
-    <option value="Lead">Lead</option>
-    <option>------------</option>
-    <option value="DSC Manager">DSC Manager</option>
-    <option>------------</option>
-    <option value="Web Head">Web Head</option>
-    <option value="Android Head">Android Head</option>
-    <option value="Flutter Head">Flutter Head</option>
-    <option value="Head of Media">Head of Media</option>
-    <option value="Management Head">Management Head</option>
-    <option value="Social Media Head">Social Media Head</option>
-    <option value="Head of Content">Head of Content</option>
-    <option value="Multimedia Head">Multimedia Head</option>
-    <option >------------</option>
-    <option value="Web Manager<">Web Manager</option>
-    <option value="Android Manager">Android Manager</option>
-    <option value="Flutter Manager">Flutter Manager</option>
-    <option >------------</option>
-    <option value="Web Developer">Web Developer</option>
-    <option value="Android Developer">Android Developer</option>
-    <option value="Flutter Developer">Flutter Developer</option>
-    <option value="Multimedia Coordinator">Multimedia Coordinator</option>
-    <option value="Content Writer">Content Writer</option>
-    <option value="Event Manager">Event Manager</option>
+    <option value="Lead">DSC Lead</option>
+    <option value="Head">Head</option>
+    <option value="Manager">Manager</option>
+    <option value="Senior Developer">Senior Developer</option>
+    <option value="Junior Developer">Junior Developer</option>
     </select>
     <!-- refer projects.js for action on selecting the domain -->
     </div>
@@ -105,12 +87,19 @@
                 <div>
                     <div class="row">
                         <div class="col">
-                            <label for="" class="form-label mt-3">LinkedIn:</label>
-                            <input type="url" name="linkedInProfile" class="form-control " required
-                            placeholder="" value="<%= member.linkedInProfile %>">
+                            <label for=""
+                            class="form-label mt-3">Position</label>
+                            <input type="text" name="position" class="form-control "
+                            required  value="<%= member.position %>">
+                        </div>
+                        <div class="col">
+                            <label for="" class="form-label mt-3">Year</label>
+                            <input type="text" name="year" required class="form-control"
+                                                                    placeholder="" value="<%= member.year %>">
                         </div>
                     </div>
                 </div>
+                
         </div>
         <div class="col-4 uploaddiv">
             <div class="demoimage h-100 text-center d-table" id="demoimg" onclick="imgupload();">

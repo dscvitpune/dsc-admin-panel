@@ -207,13 +207,14 @@ const updateMember = async (req, res) => {
     let updatedMember = await Member.findByIdAndUpdate(
       memberId,
       {
-        firstName,
-        lastName,
-        linkedInProfile,
-        githubProfile,
-        role,
-        email,
-        mobileNumber,
+        fulllname,
+    position,
+    linkedInProfile,
+    githubProfile,
+    mobileNumber,
+    role,
+    email,
+    year,
         image:image
       },
       { new: true }
