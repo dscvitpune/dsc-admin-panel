@@ -30,18 +30,18 @@
            
         <div>
             <form method="POST", action="/team/newMember" enctype="multipart/form-data">
-        <p  class="display-6 titl text-dark mb-4">Teams' Form</p>
+        <p  class="display-6 titl text-dark mb-4">Members Form</p>
         <div class="form mx-auto" id="formm">
            <div class="row">
                <div class="col">
                 <div class="row resp">
                     <div class="col projtitle">
-                        <label for="" class="form-label">First Name </label>
-                        <input type="text" name="firstName" class="form-control " required placeholder="">
+                        <label for="" class="form-label">Full Name </label>
+                        <input type="text" name="fullname" class="form-control " required placeholder="">
                     </div>
                     <div class="col domain">
-                        <label for="" class="form-label">Last Name</label>
-                        <input type="text" name="lastName" class="form-control " required placeholder="">
+                        <label for="" class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control " required placeholder="">
                     </div>
                 </div>
                 <div>
@@ -53,8 +53,8 @@
                             required placeholder="">
                         </div>
                         <div class="col">
-                            <label for="" class="form-label mt-3">Email</label>
-                            <input type="email" name="email" required class="form-control" placeholder="">
+                            <label for="" class="form-label mt-3">LinkedIn</label>
+                            <input type="url" name="linkedInProfile" required class="form-control" placeholder="">
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                         <div class="col">
                             <label for=""
                             class="form-label mt-3">Contact</label>
-                            <input type="text" name="mobileNumber" required class="form-control"
+                            <input type="number" name="mobileNumber" required class="form-control"
                             placeholder="">
                         </div>
                         <div class="col">
@@ -74,29 +74,11 @@
     class="form-control bg-dark text-light text-center" required
     data-error="Please select ">
     <option>-- Select your Role --</option>
-    <option value="Lead">Lead</option>
-    <option>------------</option>
-    <option value="DSC Manager">DSC Manager</option>
-    <option>------------</option>
-    <option value="Web Head">Web Head</option>
-    <option value="Android Head">Android Head</option>
-    <option value="Flutter Head">Flutter Head</option>
-    <option value="Head of Media">Head of Media</option>
-    <option value="Management Head">Management Head</option>
-    <option value="Social Media Head">Social Media Head</option>
-    <option value="Head of Content">Head of Content</option>
-    <option value="Multimedia Head">Multimedia Head</option>
-    <option >------------</option>
-    <option value="Web Manager<">Web Manager</option>
-    <option value="Android Manager">Android Manager</option>
-    <option value="Flutter Manager">Flutter Manager</option>
-    <option >------------</option>
-    <option value="Web Developer">Web Developer</option>
-    <option value="Android Developer">Android Developer</option>
-    <option value="Flutter Developer">Flutter Developer</option>
-    <option value="Multimedia Coordinator">Multimedia Coordinator</option>
-    <option value="Content Writer">Content Writer</option>
-    <option value="Event Manager">Event Manager</option>
+    <option value="Lead">DSC Lead</option>
+    <option value="Head">Head</option>
+    <option value="Manager">Manager</option>
+    <option value="Senior Developer">Senior Developer</option>
+    <option value="Junior Developer">Junior Developer</option>
     </select>
     <!-- refer projects.js for action on selecting the domain -->
     </div>
@@ -106,8 +88,8 @@
                 <div>
                     <div class="row">
                         <div class="col">
-                            <label for="" class="form-label mt-3">LinkedIn</label>
-                            <input type="url" name="linkedInProfile" class="form-control " required placeholder="">
+                            <label for="" class="form-label mt-3">Position</label>
+                            <input type="text" name="position" class="form-control " required placeholder="">
                         </div>
                         <div class="col">
                             <label for="" class="form-label mt-3">Year</label>
@@ -149,6 +131,7 @@
             <th style="width:5%;">Email</th>
             <th style="width:5%;">Mobile No.</th>
             <th style="width:6%;">Role</th>
+            <th style="width:6%;">Position</th>
             <th style="width:4%;">Year</th>
             <th style="width:1%;">GitHub</th>
             <th style="width:0.5%;">LinkedIn</th>
@@ -159,10 +142,11 @@
             <% allMembers.forEach((member, idx) => { %>
             <tr>
             <td><%= idx+1%></td>
-            <td><%= member.firstName + " " + member.lastName%></td>
+            <td><%= member.firstName%></td>
             <td><%= member.email%></td>
             <td><%= member.mobileNumber%></td>
             <td><%= member.role%></td>
+            <td><%= member.position%></td>
             <td><%= member.year%></td>
             <td><a href="<%= member.githubProfile%>" class="btn btn-link">Click Here</a></td>
             <td><a href="<%= member.linkedInProfile%>" class="btn btn-link">Click Here</a></td>
