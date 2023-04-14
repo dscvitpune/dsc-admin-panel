@@ -49,7 +49,17 @@ duration.addEventListener('input', (e) => {
                     // another div for each slot
                     const slotsRow = document.createElement('div')
                     slotsRow.classList.add('d-flex')
-                    const parentRow = e.path[2]
+                    console.log(e)
+                    // let parentRow = e.path[2]
+
+                    var path = e.composedPath ? e.composedPath() : e.path;
+                    console.log(path)
+                    if (path) {
+                        parentRow = path[2]
+                    } else {
+                        // This browser doesn't supply path information
+                    }
+
                     //console.log(e.path[2])
                     //html for start time and end time in one row
                     slotsRow.innerHTML = `
